@@ -34,6 +34,8 @@ public:
         return this->y;
     }
 
+    virtual ~Point() = default;
+
     Point &operator=(const Point &p) = default;
 };
 
