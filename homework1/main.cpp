@@ -21,18 +21,18 @@ void InheritancePolygonalChainCheck(const PolygonalChain *pc, const PolygonalCha
 void PolygonsCheck() {
     Point *a = new Point[3]{Point(0, 0), Point(3, 4), Point(3, 0)};
     Point *b = new Point[4]{Point(0, 0), Point(1, 4), Point(3, 4), Point(3, 0)};
-//    const Polygon p(3, a);
+    const Polygon p(3, a);
 //    const Triangle t(3, a);
 //    const Trapezoid tr(4, b);
     const PolygonalChain pc(3, a);
     assert(pc.getN() == 3 && pc.getPoint(1).getX() == 3 && pc.getPoint(1).getY() == 4);
     assert(pc.perimeter() == 9);
-//    const ClosedPolygonalChain cpc(3, a);
-//    a[1] = Point();
-//    assert(cpc.getN() == 3 && cpc.getPoint(1).getX() == 3 && cpc.getPoint(1).getY() == 4);
-//    assert(cpc.perimeter() == 12);
-//    InheritancePolygonalChainCheck(&pc, &cpc);
-//    assert(p.area() == 6);
+    const ClosedPolygonalChain cpc(3, a);
+    a[1] = Point();
+    assert(cpc.getN() == 3 && cpc.getPoint(1).getX() == 3 && cpc.getPoint(1).getY() == 4);
+    assert(cpc.perimeter() == 12);
+    InheritancePolygonalChainCheck(&pc, &cpc);
+    assert(p.area() == 6);
 //    assert(abs(tr.height() - 4) < EPS);
 //    assert(t.hasRightAngle());
 //    Triangle trSharpestAsMyHand(3, new Point[3]{Point(0, 0), Point(1, 1), Point(0, 100)});

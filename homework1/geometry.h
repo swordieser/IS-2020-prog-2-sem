@@ -2,7 +2,7 @@
 #define IS_2020_PROG_2_SEM_GEOMETRY_H
 
 #include <vector>
-#include "math.h"
+#include <cmath>
 
 using namespace std;
 
@@ -33,6 +33,8 @@ public:
     int getY() const {
         return this->y;
     }
+
+    Point &operator=(const Point &p) = default;
 };
 
 class PolygonalChain : public Point {
@@ -42,6 +44,7 @@ private:
 public:
     PolygonalChain() {
         this->n = 0;
+        points.resize(0);
     }
 
     PolygonalChain(int n, Point points[]) {
@@ -51,10 +54,7 @@ public:
         }
     }
 
-    PolygonalChain(const PolygonalChain &pc) : Point(pc) {
-        this->n = pc.n;
-        this->points = pc.points;
-    }
+    PolygonalChain(const PolygonalChain &pc) = default;
 
     int getN() const {
         return this->n;
@@ -72,11 +72,53 @@ public:
     virtual double perimeter() const {
         double p = 0;
         for (int i = 0; i < this->n - 1; i++) {
-            p += range(this->getPoint(i), this->getPoint(i+1));
+            p += range(this->getPoint(i), this->getPoint(i + 1));
         }
         return p;
     }
+
+    PolygonalChain &operator=(const PolygonalChain &pc) = default;
 };
 
+class ClosedPolygonalChain : public PolygonalChain {
+public:
+    ClosedPolygonalChain() : PolygonalChain() {};
+
+    ClosedPolygonalChain(int n, Point points[]) : PolygonalChain(n, points) {};
+
+    ClosedPolygonalChain(const ClosedPolygonalChain &cpc) = default;
+
+    double perimeter() const override {
+        double p = 0;
+        for (int i = 0; i < this->getN() - 1; i++) {
+            p += range(this->getPoint(i), this->getPoint(i + 1));
+        }
+        p += range(this->getPoint(0), this->getPoint(this->getN() - 1));
+        return p;
+    }
+
+    ClosedPolygonalChain &operator=(const ClosedPolygonalChain &cpc) = default;
+};
+
+
+class Polygon : public ClosedPolygonalChain {
+public:
+    Polygon() : ClosedPolygonalChain() {};
+
+    Polygon(int n, Point points[]) : ClosedPolygonalChain(n, points) {};
+
+    Polygon(const Polygon &p) = default;
+
+    virtual double area() const {
+        double a = perimeter() / 2;
+        for (int i = 0; i < getN() - 1; i++) {
+            a *= perimeter() / 2 - range(getPoint(i), getPoint(i + 1));
+        }
+        a *= perimeter() / 2 - range(getPoint(0), getPoint(getN() - 1));
+        return sqrt(a);
+    }
+
+    Polygon &operator=(const Polygon &p) = default;
+};
 
 #endif
