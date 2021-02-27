@@ -114,13 +114,15 @@ public:
         for (int i = 0; i < getN() - 1; i++) {
             s_first += this->getPoint(i).getX() * this->getPoint(i + 1).getY();
         }
+        s_first += this->getPoint(getN() - 1).getX() * this->getPoint(0).getY();
 
         double s_second = 0;
         for (int i = 0; i < getN() - 1; i++) {
             s_second += this->getPoint(i).getY() * this->getPoint(i + 1).getX();
         }
+        s_second += this->getPoint(getN() - 1).getY() * this->getPoint(0).getX();
 
-        a = abs(s_first-s_second)/2;
+        a = abs(s_first - s_second) / 2;
 
         return a;
     }

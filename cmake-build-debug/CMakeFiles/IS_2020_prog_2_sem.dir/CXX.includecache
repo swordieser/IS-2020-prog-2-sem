@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework1/geometry.h
+vector
+-
+cmath
+-
+
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework1/main.cpp
+geometry.h
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework1/geometry.h
+cassert
+-
+
