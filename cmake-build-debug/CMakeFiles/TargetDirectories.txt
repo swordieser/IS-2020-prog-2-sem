@@ -1,0 +1,3 @@
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/cmake-build-debug/CMakeFiles/IS_2020_prog_2_sem.dir
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/cmake-build-debug/CMakeFiles/rebuild_cache.dir

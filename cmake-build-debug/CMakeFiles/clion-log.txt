@@ -1,0 +1,4 @@
+"D:\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\komra\CLionProjects\IS-2020-prog-2-sem
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/cmake-build-debug

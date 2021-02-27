@@ -1,0 +1,3 @@
+"D:\CLion 2020.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\IS_2020_prog_2_sem.dir/objects.a
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\IS_2020_prog_2_sem.dir/objects.a @CMakeFiles\IS_2020_prog_2_sem.dir\objects1.rsp
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\IS_2020_prog_2_sem.dir/objects.a -Wl,--no-whole-archive  -o IS_2020_prog_2_sem.exe -Wl,--out-implib,libIS_2020_prog_2_sem.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\IS_2020_prog_2_sem.dir\linklibs.rsp
