@@ -100,7 +100,6 @@ public:
     ClosedPolygonalChain &operator=(const ClosedPolygonalChain &cpc) = default;
 };
 
-
 class Polygon : public ClosedPolygonalChain {
 public:
     Polygon() : ClosedPolygonalChain() {};
@@ -110,15 +109,74 @@ public:
     Polygon(const Polygon &p) = default;
 
     virtual double area() const {
-        double a = perimeter() / 2;
+        double a;
+        double s_first = 0;
         for (int i = 0; i < getN() - 1; i++) {
-            a *= perimeter() / 2 - range(getPoint(i), getPoint(i + 1));
+            s_first += this->getPoint(i).getX() * this->getPoint(i + 1).getY();
         }
-        a *= perimeter() / 2 - range(getPoint(0), getPoint(getN() - 1));
-        return sqrt(a);
+
+        double s_second = 0;
+        for (int i = 0; i < getN() - 1; i++) {
+            s_second += this->getPoint(i).getY() * this->getPoint(i + 1).getX();
+        }
+
+        a = abs(s_first-s_second)/2;
+
+        return a;
     }
 
     Polygon &operator=(const Polygon &p) = default;
+};
+
+class Triangle : public Polygon {
+public:
+    Triangle() : Polygon() {};
+
+    Triangle(int n, Point points[]) : Polygon(n, points) {};
+
+    Triangle(const Triangle &tr) = default;
+
+    bool hasRightAngle() const {
+        double a = range(getPoint(0), getPoint(1));
+        double b = range(getPoint(1), getPoint(2));
+        double c = range(getPoint(0), getPoint(2));
+
+        bool answer = ((pow(a, 2) + pow(b, 2) == pow(c, 2)) ||
+                       (pow(a, 2) + pow(c, 2) == pow(b, 2) ||
+                        (pow(c, 2) + pow(b, 2) == pow(a, 2))));
+
+        return answer;
+    }
+
+    Triangle &operator=(const Triangle &tr) = default;
+};
+
+class Trapezoid : public Polygon {
+public:
+    Trapezoid() : Polygon() {};
+
+    Trapezoid(int n, Point points[]) : Polygon(n, points) {};
+
+    Trapezoid(const Trapezoid &tr) = default;
+
+    double height() const {
+        double h;
+        h = (2 * area()) / (range(getPoint(1), getPoint(2)) + range(getPoint(3), getPoint(0)));
+        return h;
+    }
+
+    Trapezoid &operator=(const Trapezoid &trp) = default;
+};
+
+class RegularPolygon : public Polygon {
+public:
+    RegularPolygon() : Polygon() {};
+
+    RegularPolygon(int n, Point points[]) : Polygon(n, points) {};
+
+    RegularPolygon(const RegularPolygon &rp) = default;
+
+    RegularPolygon &operator=(const RegularPolygon &rp) = default;
 };
 
 #endif
