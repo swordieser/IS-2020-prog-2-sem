@@ -5,7 +5,7 @@
 #include <cmath>
 
 using namespace std;
-
+//todo cpp
 class Point {
 private:
     int x;
@@ -91,6 +91,7 @@ public:
     ClosedPolygonalChain(const ClosedPolygonalChain &cpc) = default;
 
     double perimeter() const override {
+        //todo copy-paster perimeter
         double p = 0;
         for (int i = 0; i < this->getN() - 1; i++) {
             p += range(this->getPoint(i), this->getPoint(i + 1));
@@ -139,7 +140,7 @@ public:
     Triangle(int n, Point points[]) : Polygon(n, points) {};
 
     Triangle(const Triangle &tr) = default;
-
+	//todo without sqrt
     bool hasRightAngle() const {
         double a = range(getPoint(0), getPoint(1));
         double b = range(getPoint(1), getPoint(2));
@@ -172,6 +173,7 @@ public:
     Trapezoid &operator=(const Trapezoid &trp) = default;
 };
 
+//todo regular polygon area and perimeter
 class RegularPolygon : public Polygon {
 public:
     RegularPolygon() : Polygon() {};
