@@ -125,7 +125,7 @@ bool Triangle::hasRightAngle() const {
     double b = pow(getPoint(1).getX() - getPoint(2).getX(), 2) + pow(getPoint(1).getY() - getPoint(2).getY(), 2);
     double c = pow(getPoint(2).getX() - getPoint(0).getX(), 2) + pow(getPoint(2).getY() - getPoint(0).getY(), 2);
 
-    bool answer = ((a+b==c)||(a+c==b)||(b+c==a));
+    bool answer = ((a + b == c) || (a + c == b) || (b + c == a));
 
     return answer;
 }
@@ -160,10 +160,10 @@ RegularPolygon &RegularPolygon::operator=(const RegularPolygon &rp) = default;
 
 double RegularPolygon::perimeter() const {
     double a = range(getPoint(0), getPoint(1));
-    return a*getN();
+    return a * getN();
 }
 
 double RegularPolygon::area() const {
     double a = range(getPoint(0), getPoint(1));
-    return ((getN()*pow(a, 2))/(4*tan(M_PI/getN())));
+    return ((getN() * pow(a, 2)) / (4 * tan(M_PI / getN())));
 }
