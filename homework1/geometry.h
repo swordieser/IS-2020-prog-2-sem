@@ -5,38 +5,26 @@
 #include <cmath>
 
 using namespace std;
-//todo cpp
+
+//fixed cpp
 class Point {
 private:
     int x;
     int y;
 public:
-    Point() {
-        this->x = 0;
-        this->y = 0;
-    }
+    Point();
 
-    Point(int x, int y) {
-        this->x = x;
-        this->y = y;
-    }
+    Point(int x, int y);
 
-    Point(const Point &point) {
-        this->x = point.x;
-        this->y = point.y;
-    }
+    Point(const Point &point);
 
-    int getX() const {
-        return this->x;
-    }
+    int getX() const;
 
-    int getY() const {
-        return this->y;
-    }
+    int getY() const;
 
-    virtual ~Point() = default;
+    virtual ~Point();
 
-    Point &operator=(const Point &p) = default;
+    Point &operator=(const Point &p);
 };
 
 class PolygonalChain : public Point {
@@ -44,145 +32,90 @@ private:
     vector<Point> points;
     int n;
 public:
-    PolygonalChain() {
-        this->n = 0;
-        points.resize(0);
-    }
+    PolygonalChain();
 
-    PolygonalChain(int n, Point points[]) {
-        this->n = n;
-        for (int i = 0; i < n; i++) {
-            this->points.push_back(points[i]);
-        }
-    }
+    PolygonalChain(int n, Point points[]);
 
-    PolygonalChain(const PolygonalChain &pc) = default;
+    PolygonalChain(const PolygonalChain &pc);
 
-    int getN() const {
-        return this->n;
-    }
+    int getN() const;
 
-    Point getPoint(int k) const {
-        return this->points.at(k);
-    }
+    Point getPoint(int k) const;
 
-    static double range(const Point &p1, const Point &p2) {
-        double distance = sqrt(pow(p1.getX() - p2.getX(), 2) + pow(p1.getY() - p2.getY(), 2));
-        return distance;
-    }
+    static double range(const Point &p1, const Point &p2);
 
-    virtual double perimeter() const {
-        double p = 0;
-        for (int i = 0; i < this->n - 1; i++) {
-            p += range(this->getPoint(i), this->getPoint(i + 1));
-        }
-        return p;
-    }
+    virtual double perimeter() const;
 
-    PolygonalChain &operator=(const PolygonalChain &pc) = default;
+    PolygonalChain &operator=(const PolygonalChain &pc);
 };
 
 class ClosedPolygonalChain : public PolygonalChain {
 public:
-    ClosedPolygonalChain() : PolygonalChain() {};
+    ClosedPolygonalChain();
 
-    ClosedPolygonalChain(int n, Point points[]) : PolygonalChain(n, points) {};
+    ClosedPolygonalChain(int n, Point points[]);
 
-    ClosedPolygonalChain(const ClosedPolygonalChain &cpc) = default;
+    ClosedPolygonalChain(const ClosedPolygonalChain &cpc);
+    //fixed copy-paster perimeter
+    double perimeter() const override;
 
-    double perimeter() const override {
-        //todo copy-paster perimeter
-        double p = 0;
-        for (int i = 0; i < this->getN() - 1; i++) {
-            p += range(this->getPoint(i), this->getPoint(i + 1));
-        }
-        p += range(this->getPoint(0), this->getPoint(this->getN() - 1));
-        return p;
-    }
-
-    ClosedPolygonalChain &operator=(const ClosedPolygonalChain &cpc) = default;
+    ClosedPolygonalChain &operator=(const ClosedPolygonalChain &cpc);
 };
 
 class Polygon : public ClosedPolygonalChain {
 public:
-    Polygon() : ClosedPolygonalChain() {};
+    Polygon();
 
-    Polygon(int n, Point points[]) : ClosedPolygonalChain(n, points) {};
+    Polygon(int n, Point points[]);
 
-    Polygon(const Polygon &p) = default;
+    Polygon(const Polygon &p);
 
-    virtual double area() const {
-        double a;
-        double s_first = 0;
-        for (int i = 0; i < getN() - 1; i++) {
-            s_first += this->getPoint(i).getX() * this->getPoint(i + 1).getY();
-        }
-        s_first += this->getPoint(getN() - 1).getX() * this->getPoint(0).getY();
+    virtual double area() const;
 
-        double s_second = 0;
-        for (int i = 0; i < getN() - 1; i++) {
-            s_second += this->getPoint(i).getY() * this->getPoint(i + 1).getX();
-        }
-        s_second += this->getPoint(getN() - 1).getY() * this->getPoint(0).getX();
-
-        a = abs(s_first - s_second) / 2;
-
-        return a;
-    }
-
-    Polygon &operator=(const Polygon &p) = default;
+    Polygon &operator=(const Polygon &p);
 };
 
 class Triangle : public Polygon {
 public:
-    Triangle() : Polygon() {};
+    Triangle();
 
-    Triangle(int n, Point points[]) : Polygon(n, points) {};
+    Triangle(int n, Point points[]);
 
-    Triangle(const Triangle &tr) = default;
-	//todo without sqrt
-    bool hasRightAngle() const {
-        double a = range(getPoint(0), getPoint(1));
-        double b = range(getPoint(1), getPoint(2));
-        double c = range(getPoint(0), getPoint(2));
+    Triangle(const Triangle &tr);
 
-        bool answer = ((pow(a, 2) + pow(b, 2) == pow(c, 2)) ||
-                       (pow(a, 2) + pow(c, 2) == pow(b, 2) ||
-                        (pow(c, 2) + pow(b, 2) == pow(a, 2))));
+    //fixed without sqrt
+    bool hasRightAngle() const;
 
-        return answer;
-    }
-
-    Triangle &operator=(const Triangle &tr) = default;
+    Triangle &operator=(const Triangle &tr);
 };
 
 class Trapezoid : public Polygon {
 public:
-    Trapezoid() : Polygon() {};
+    Trapezoid();
 
-    Trapezoid(int n, Point points[]) : Polygon(n, points) {};
+    Trapezoid(int n, Point points[]);
 
-    Trapezoid(const Trapezoid &tr) = default;
+    Trapezoid(const Trapezoid &tr);
 
-    double height() const {
-        double h;
-        h = (2 * area()) / (range(getPoint(1), getPoint(2)) + range(getPoint(3), getPoint(0)));
-        return h;
-    }
+    double height() const ;
 
-    Trapezoid &operator=(const Trapezoid &trp) = default;
+    Trapezoid &operator=(const Trapezoid &trp);
 };
 
-//todo regular polygon area and perimeter
+//fixed regular polygon area and perimeter
 class RegularPolygon : public Polygon {
 public:
-    RegularPolygon() : Polygon() {};
+    RegularPolygon();
 
-    RegularPolygon(int n, Point points[]) : Polygon(n, points) {};
+    RegularPolygon(int n, Point points[]);
 
-    RegularPolygon(const RegularPolygon &rp) = default;
+    RegularPolygon(const RegularPolygon &rp);
 
-    RegularPolygon &operator=(const RegularPolygon &rp) = default;
+    RegularPolygon &operator=(const RegularPolygon &rp);
+
+    double perimeter() const override;
+
+    double area() const override;
 };
 
 #endif
