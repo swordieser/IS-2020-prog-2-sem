@@ -1,4 +1,4 @@
-#include "geometry.cpp"
+#include "geometry.h"
 #include <cassert>
 
 using namespace std;

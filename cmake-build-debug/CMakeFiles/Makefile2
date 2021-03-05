@@ -93,12 +93,12 @@ clean: CMakeFiles/IS_2020_prog_2_sem.dir/clean
 CMakeFiles/IS_2020_prog_2_sem.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target IS_2020_prog_2_sem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target IS_2020_prog_2_sem"
 .PHONY : CMakeFiles/IS_2020_prog_2_sem.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/IS_2020_prog_2_sem.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\cmake-build-debug\CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/IS_2020_prog_2_sem.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/IS_2020_prog_2_sem.dir/rule
