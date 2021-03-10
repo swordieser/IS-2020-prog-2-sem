@@ -142,59 +142,59 @@ IS_2020_prog_2_sem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/build
 .PHONY : IS_2020_prog_2_sem/fast
 
-homework1/geometry.obj: homework1/geometry.cpp.obj
+homework2/main.obj: homework2/main.cpp.obj
 
-.PHONY : homework1/geometry.obj
-
-# target to build an object file
-homework1/geometry.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.obj
-.PHONY : homework1/geometry.cpp.obj
-
-homework1/geometry.i: homework1/geometry.cpp.i
-
-.PHONY : homework1/geometry.i
-
-# target to preprocess a source file
-homework1/geometry.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.i
-.PHONY : homework1/geometry.cpp.i
-
-homework1/geometry.s: homework1/geometry.cpp.s
-
-.PHONY : homework1/geometry.s
-
-# target to generate assembly for a file
-homework1/geometry.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.s
-.PHONY : homework1/geometry.cpp.s
-
-homework1/main.obj: homework1/main.cpp.obj
-
-.PHONY : homework1/main.obj
+.PHONY : homework2/main.obj
 
 # target to build an object file
-homework1/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.obj
-.PHONY : homework1/main.cpp.obj
+homework2/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.obj
+.PHONY : homework2/main.cpp.obj
 
-homework1/main.i: homework1/main.cpp.i
+homework2/main.i: homework2/main.cpp.i
 
-.PHONY : homework1/main.i
+.PHONY : homework2/main.i
 
 # target to preprocess a source file
-homework1/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.i
-.PHONY : homework1/main.cpp.i
+homework2/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.i
+.PHONY : homework2/main.cpp.i
 
-homework1/main.s: homework1/main.cpp.s
+homework2/main.s: homework2/main.cpp.s
 
-.PHONY : homework1/main.s
+.PHONY : homework2/main.s
 
 # target to generate assembly for a file
-homework1/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.s
-.PHONY : homework1/main.cpp.s
+homework2/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.s
+.PHONY : homework2/main.cpp.s
+
+homework2/polynomial.obj: homework2/polynomial.cpp.obj
+
+.PHONY : homework2/polynomial.obj
+
+# target to build an object file
+homework2/polynomial.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.obj
+.PHONY : homework2/polynomial.cpp.obj
+
+homework2/polynomial.i: homework2/polynomial.cpp.i
+
+.PHONY : homework2/polynomial.i
+
+# target to preprocess a source file
+homework2/polynomial.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.i
+.PHONY : homework2/polynomial.cpp.i
+
+homework2/polynomial.s: homework2/polynomial.cpp.s
+
+.PHONY : homework2/polynomial.s
+
+# target to generate assembly for a file
+homework2/polynomial.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.s
+.PHONY : homework2/polynomial.cpp.s
 
 # Help Target
 help:
@@ -205,12 +205,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... IS_2020_prog_2_sem
-	@echo ... homework1/geometry.obj
-	@echo ... homework1/geometry.i
-	@echo ... homework1/geometry.s
-	@echo ... homework1/main.obj
-	@echo ... homework1/main.i
-	@echo ... homework1/main.s
+	@echo ... homework2/main.obj
+	@echo ... homework2/main.i
+	@echo ... homework2/main.s
+	@echo ... homework2/polynomial.obj
+	@echo ... homework2/polynomial.i
+	@echo ... homework2/polynomial.s
 .PHONY : help
 
 

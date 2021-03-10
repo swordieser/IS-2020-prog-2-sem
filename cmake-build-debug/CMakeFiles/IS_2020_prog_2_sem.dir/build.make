@@ -76,42 +76,42 @@ include CMakeFiles/IS_2020_prog_2_sem.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/IS_2020_prog_2_sem.dir/flags.make
 
-CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.obj: CMakeFiles/IS_2020_prog_2_sem.dir/flags.make
-CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.obj: ../homework1/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\IS_2020_prog_2_sem.dir\homework1\main.cpp.obj -c C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework1\main.cpp
+CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.obj: CMakeFiles/IS_2020_prog_2_sem.dir/flags.make
+CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.obj: ../homework2/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\IS_2020_prog_2_sem.dir\homework2\main.cpp.obj -c C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework2\main.cpp
 
-CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework1\main.cpp > CMakeFiles\IS_2020_prog_2_sem.dir\homework1\main.cpp.i
+CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework2\main.cpp > CMakeFiles\IS_2020_prog_2_sem.dir\homework2\main.cpp.i
 
-CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework1\main.cpp -o CMakeFiles\IS_2020_prog_2_sem.dir\homework1\main.cpp.s
+CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework2\main.cpp -o CMakeFiles\IS_2020_prog_2_sem.dir\homework2\main.cpp.s
 
-CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.obj: CMakeFiles/IS_2020_prog_2_sem.dir/flags.make
-CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.obj: ../homework1/geometry.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\IS_2020_prog_2_sem.dir\homework1\geometry.cpp.obj -c C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework1\geometry.cpp
+CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.obj: CMakeFiles/IS_2020_prog_2_sem.dir/flags.make
+CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.obj: ../homework2/polynomial.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\IS_2020_prog_2_sem.dir\homework2\polynomial.cpp.obj -c C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework2\polynomial.cpp
 
-CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework1\geometry.cpp > CMakeFiles\IS_2020_prog_2_sem.dir\homework1\geometry.cpp.i
+CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework2\polynomial.cpp > CMakeFiles\IS_2020_prog_2_sem.dir\homework2\polynomial.cpp.i
 
-CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework1\geometry.cpp -o CMakeFiles\IS_2020_prog_2_sem.dir\homework1\geometry.cpp.s
+CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\komra\CLionProjects\IS-2020-prog-2-sem\homework2\polynomial.cpp -o CMakeFiles\IS_2020_prog_2_sem.dir\homework2\polynomial.cpp.s
 
 # Object files for target IS_2020_prog_2_sem
 IS_2020_prog_2_sem_OBJECTS = \
-"CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.obj" \
-"CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.obj"
+"CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.obj" \
+"CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.obj"
 
 # External object files for target IS_2020_prog_2_sem
 IS_2020_prog_2_sem_EXTERNAL_OBJECTS =
 
-IS_2020_prog_2_sem.exe: CMakeFiles/IS_2020_prog_2_sem.dir/homework1/main.cpp.obj
-IS_2020_prog_2_sem.exe: CMakeFiles/IS_2020_prog_2_sem.dir/homework1/geometry.cpp.obj
+IS_2020_prog_2_sem.exe: CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.obj
+IS_2020_prog_2_sem.exe: CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.obj
 IS_2020_prog_2_sem.exe: CMakeFiles/IS_2020_prog_2_sem.dir/build.make
 IS_2020_prog_2_sem.exe: CMakeFiles/IS_2020_prog_2_sem.dir/linklibs.rsp
 IS_2020_prog_2_sem.exe: CMakeFiles/IS_2020_prog_2_sem.dir/objects1.rsp

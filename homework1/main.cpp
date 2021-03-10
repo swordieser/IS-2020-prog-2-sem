@@ -1,4 +1,5 @@
 #include "geometry.h"
+#include <iostream>
 #include <cassert>
 
 using namespace std;
@@ -45,6 +46,8 @@ void PolygonsCheck() {
     Trapezoid trCopy(*trap);
     delete trap;
     assert(abs(trCopy.height() - 4) < EPS);
+    Triangle floatArea(3, new Point[3]{Point(0, 0), Point(1, 1), Point(0, 1)});
+    assert(floatArea.area() == 0.5);
 }
 
 int main() {

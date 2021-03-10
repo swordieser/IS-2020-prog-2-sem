@@ -80,13 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework1/geometry.cpp">
+		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/main.cpp">
 			<Option target="IS_2020_prog_2_sem"/>
 		</Unit>
-		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework1/geometry.h">
+		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/polynomial.cpp">
 			<Option target="IS_2020_prog_2_sem"/>
 		</Unit>
-		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework1/main.cpp">
+		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/polynomial.h">
 			<Option target="IS_2020_prog_2_sem"/>
 		</Unit>
 		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/CMakeLists.txt">
