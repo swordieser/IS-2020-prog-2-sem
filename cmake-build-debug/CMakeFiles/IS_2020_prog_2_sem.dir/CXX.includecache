@@ -6,9 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/polynomial.cpp
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/main.cpp
+iostream
+-
 polynomial.h
 C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/polynomial.h
+sstream
+-
+assert.h
+-
 
 C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/polynomial.h
 vector

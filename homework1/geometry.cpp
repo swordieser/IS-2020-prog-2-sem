@@ -75,7 +75,6 @@ ClosedPolygonalChain::ClosedPolygonalChain(int n, Point points[]) : PolygonalCha
 ClosedPolygonalChain::ClosedPolygonalChain(const ClosedPolygonalChain &cpc) = default;
 
 double ClosedPolygonalChain::perimeter() const {
-
     double p = PolygonalChain::perimeter();
     p += range(this->getPoint(0), this->getPoint(this->getN() - 1));
     return p;
