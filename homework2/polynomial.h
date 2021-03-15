@@ -9,8 +9,6 @@ using namespace std;
 
 class polynomial {
 private:
-//    vector<int>* degree;
-//    vector<int>* odds;
     int* degree;
     int* odds;
     int* size;
@@ -23,17 +21,17 @@ public:
     friend bool operator==(const polynomial &p1, const polynomial &p2);
     friend bool operator!=(const polynomial &p1, const polynomial &p2);
     friend polynomial operator+(const polynomial &p1, const polynomial &p2);
-//    polynomial &operator-(int number);
-//    polynomial &operator-(const polynomial &p1, const polynomial &p2);
-//    polynomial &operator+=(const polynomial &p1, const polynomial &p2);
-//    polynomial &operator-=(const polynomial &p1, const polynomial &p2);
-//    polynomial &operator*(const polynomial &p1, const polynomial &p2);
-//    polynomial &operator/(int number);
-//    polynomial &operator*=(const polynomial &p1, const polynomial &p2);
-//    polynomial &operator/=(int number);
+    friend polynomial operator-(const polynomial &p);
+    friend polynomial operator-(const polynomial &p1, const polynomial &p2);
+//    friend polynomial &operator+=(const polynomial &p1, const polynomial &p2);
+//    friend polynomial &operator-=(const polynomial &p1, const polynomial &p2);
+//    friend polynomial &operator*(const polynomial &p1, const polynomial &p2);
+//    friend polynomial operator/(const polynomial &p, int number);
+//    friend polynomial &operator*=(const polynomial &p1, const polynomial &p2);
+//    friend polynomial &operator/=(const polynomial &p, int number);
     friend std::stringstream &operator<< (std::stringstream &out, const polynomial &p);
 //    friend std::stringstream &operator>> (std::istream &in, const polynomial &p);
-//    int &operator[](int i);
+//    friend int &operator[](const polynomial &p, int i);
 };
 
 

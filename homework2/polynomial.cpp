@@ -38,8 +38,8 @@ polynomial &polynomial::operator=(const polynomial &p) = default;
 
 bool operator==(const polynomial &p1, const polynomial &p2) {
     bool equal = true;
-    for (int i = 0; i < *p1.size; i++){
-        if ((p1.degree[i] != p2.degree[i]) || (p1.odds[i] != p2.odds[i])){
+    for (int i = 0; i < *p1.size; i++) {
+        if ((p1.degree[i] != p2.degree[i]) || (p1.odds[i] != p2.odds[i])) {
             equal = false;
             break;
         }
@@ -48,42 +48,65 @@ bool operator==(const polynomial &p1, const polynomial &p2) {
 };
 
 bool operator!=(const polynomial &p1, const polynomial &p2) {
-    return !(p1==p2);
+    return !(p1 == p2);
 };
 
-//polynomial operator+(const polynomial &p1, const polynomial &p2) {
+polynomial operator+(const polynomial &p1, const polynomial &p2) {
+    int min = p1.degree[0] <= p2.degree[0] ? p1.degree[0] : p2.degree[0];
+    int max = p1.degree[*p1.size - 1] >= p2.degree[*p2.size - 1] ? p1.degree[*p1.size - 1] : p2.degree[*p2.size - 1];
+    int size = max - min + 1;
+    int odds[size];
+    int temp_degree = min;
+    for (int i = 0; i < size; i++) {
+        odds[i] = 0;
+        for (int j = 0; j < *p1.size; j++) {
+            if (p1.degree[j] == temp_degree) {
+                odds[i] += p1.odds[j];
+            }
+        }
+        for (int j = 0; j < *p2.size; j++) {
+            if (p2.degree[j] == temp_degree) {
+                odds[i] += p2.odds[j];
+            }
+        }
+        temp_degree++;
+    }
+
+    return polynomial(min, max, odds);
+};
+
+polynomial operator-(const polynomial &p) {
+    for (int i = 0; i < *p.size; i++) {
+        p.odds[i] *= -1;
+    }
+    return p;
+};
+
+polynomial operator-(const polynomial &p1, const polynomial &p2) {
+    return p1 + (-p2);
+};
+
+//polynomial operator+=(const polynomial &p1, const polynomial &p2) {
 //
 //};
 
-//polynomial &polynomial::operator-(int number) {
+//polynomial operator-=(const polynomial &p1, const polynomial &p2) {
 //
 //};
 
-//polynomial &polynomial::operator-(const polynomial &p1, const polynomial &p2) {
+//polynomial operator*(const polynomial &p1, const polynomial &p2) {
 //
 //};
 
-//polynomial &polynomial::operator+=(const polynomial &p1, const polynomial &p2) {
+//polynomial operator/(const polynomial &p, int number) {
 //
 //};
 
-//polynomial &polynomial::operator-=(const polynomial &p1, const polynomial &p2) {
+//polynomial operator*=(const polynomial &p1, const polynomial &p2) {
 //
 //};
 
-//polynomial &polynomial::operator*(const polynomial &p1, const polynomial &p2) {
-//
-//};
-
-//polynomial &polynomial::operator/(int number) {
-//
-//};
-
-//polynomial &polynomial::operator*=(const polynomial &p1, const polynomial &p2) {
-//
-//};
-
-//polynomial &polynomial::operator/=(int number) {
+//polynomial operator/=(int number) {
 //
 //};
 
