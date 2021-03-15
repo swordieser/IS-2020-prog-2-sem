@@ -117,17 +117,36 @@ polynomial operator*(int number, const polynomial &p) {
 }
 
 polynomial operator*(const polynomial &p1, const polynomial &p2) {
-    int temp_size = *p1.size + *p2.size;
+    int temp_size = *p1.size * *p2.size;
     int temp_odds[temp_size], temp_degree[temp_size];
     int iter = 0;
-    for (int i = 0; i < *p1.size; i++)
+    for (int i = 0; i < *p1.size; i++) {
         for (int j = 0; j < *p2.size; j++) {
             temp_odds[iter] = p1.odds[i] * p2.odds[j];
-            temp_degree[iter] = p1.degree[i] * p2.degree[j];
+            temp_degree[iter] = p1.degree[i] + p2.degree[j];
             iter++;
         }
+    }
+    int min = temp_degree[0];
+    int max = temp_degree[temp_size-1];
+    int s = max - min + 1;
+    int polynomial_degree[s], polynomial_odds[s];
+    int tmp = min;
+    for (int i = 0; i < s; i++){
+        polynomial_degree[i] = tmp;
+        polynomial_odds[i] = 0;
+        tmp++;
+    }
 
+    for (int i = 0; i < s; i++){
+        for (int j =0; j < temp_size; j++){
+            if (temp_degree[j] == polynomial_degree[i]){
+                polynomial_odds[i] += temp_odds[j];
+            }
+        }
+    }
 
+    return polynomial(min, max, polynomial_odds);
 };
 
 polynomial operator/(const polynomial &p, int number) {
@@ -138,9 +157,10 @@ polynomial operator/(const polynomial &p, int number) {
     return polynomial(p.degree[0], p.degree[*p.size - 1], temp_odds);
 };
 
-//polynomial operator*=(const polynomial &p1, const polynomial &p2) {
-//
-//};
+polynomial operator*=(polynomial &p1, const polynomial &p2) {
+    p1 = p1*p2;
+    return p1;
+};
 
 polynomial operator/=(polynomial &p, int number) {
     p = p / number;
@@ -175,6 +195,15 @@ std::stringstream &operator<<(std::stringstream &out, const polynomial &p) {
 
             }
         }
+    }
+    int temp = 0;
+    for (int i = 0; i < *p.size; i++){
+        if (p.odds[i]==0){
+            temp++;
+        }
+    }
+    if (temp==*p.size && out.str().empty()){
+        out << "0";
     }
     return out;
 };
