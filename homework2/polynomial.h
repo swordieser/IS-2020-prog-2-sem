@@ -23,15 +23,18 @@ public:
     friend polynomial operator+(const polynomial &p1, const polynomial &p2);
     friend polynomial operator-(const polynomial &p);
     friend polynomial operator-(const polynomial &p1, const polynomial &p2);
-//    friend polynomial &operator+=(const polynomial &p1, const polynomial &p2);
-//    friend polynomial &operator-=(const polynomial &p1, const polynomial &p2);
-//    friend polynomial &operator*(const polynomial &p1, const polynomial &p2);
-//    friend polynomial operator/(const polynomial &p, int number);
-//    friend polynomial &operator*=(const polynomial &p1, const polynomial &p2);
-//    friend polynomial &operator/=(const polynomial &p, int number);
+    friend polynomial operator+=(polynomial &p1, const polynomial &p2);
+    friend polynomial operator-=(polynomial &p1, const polynomial &p2);
+    friend polynomial operator*(const polynomial &p, int number);
+    friend polynomial operator*(int number, const polynomial &p);
+    friend polynomial operator*(const polynomial &p1, const polynomial &p2);
+    friend polynomial operator/(const polynomial &p, int number);
+//    friend polynomial operator*=(polynomial &p1, const polynomial &p2);
+    friend polynomial operator/=(polynomial &p, int number);
     friend std::stringstream &operator<< (std::stringstream &out, const polynomial &p);
 //    friend std::stringstream &operator>> (std::istream &in, const polynomial &p);
 //    friend int &operator[](const polynomial &p, int i);
+//    friend int get(int number);
 };
 
 

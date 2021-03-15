@@ -27,24 +27,32 @@ polynomial::polynomial(int min, int max, int *odd) {
 }
 
 polynomial::polynomial(const polynomial &p) {
-    this->odds = p.odds;
-    this->degree = p.degree;
-    this->size = p.size;
+    this->size = (int *) malloc(sizeof(int));
+    *this->size = *p.size;
+
+    this->odds = (int *) malloc((*this->size) * sizeof(int));
+    this->degree = (int *) malloc((*this->size) * sizeof(int));
+
+    for (int i = 0; i < *this->size; i++) {
+        this->degree[i] = p.degree[i];
+        this->odds[i] = p.odds[i];
+    }
 }
 
 //polynomial::~polynomial() = default;
 
-polynomial &polynomial::operator=(const polynomial &p) = default;
+polynomial &polynomial::operator=(const polynomial &p) {
+    this->odds = p.odds;
+    this->degree = p.degree;
+    this->size = p.size;
+    return *this;
+};
 
 bool operator==(const polynomial &p1, const polynomial &p2) {
-    bool equal = true;
-    for (int i = 0; i < *p1.size; i++) {
-        if ((p1.degree[i] != p2.degree[i]) || (p1.odds[i] != p2.odds[i])) {
-            equal = false;
-            break;
-        }
-    }
-    return equal;
+    stringstream ss1, ss2;
+    ss1 << p1;
+    ss2 << p2;
+    return ss1.str() == ss2.str();
 };
 
 bool operator!=(const polynomial &p1, const polynomial &p2) {
@@ -86,29 +94,58 @@ polynomial operator-(const polynomial &p1, const polynomial &p2) {
     return p1 + (-p2);
 };
 
-//polynomial operator+=(const polynomial &p1, const polynomial &p2) {
-//
-//};
+polynomial operator+=(polynomial &p1, const polynomial &p2) {
+    p1 = p1 + p2;
+    return p1;
+};
 
-//polynomial operator-=(const polynomial &p1, const polynomial &p2) {
-//
-//};
+polynomial operator-=(polynomial &p1, const polynomial &p2) {
+    p1 = p1 - p2;
+    return p1;
+};
 
-//polynomial operator*(const polynomial &p1, const polynomial &p2) {
-//
-//};
+polynomial operator*(const polynomial &p, int number) {
+    int temp_odds[*p.size];
+    for (int i = 0; i < *p.size; i++) {
+        temp_odds[i] = p.odds[i] * number;
+    }
+    return polynomial(p.degree[0], p.degree[*p.size - 1], temp_odds);
+};
 
-//polynomial operator/(const polynomial &p, int number) {
-//
-//};
+polynomial operator*(int number, const polynomial &p) {
+    return p * number;
+}
+
+polynomial operator*(const polynomial &p1, const polynomial &p2) {
+    int temp_size = *p1.size + *p2.size;
+    int temp_odds[temp_size], temp_degree[temp_size];
+    int iter = 0;
+    for (int i = 0; i < *p1.size; i++)
+        for (int j = 0; j < *p2.size; j++) {
+            temp_odds[iter] = p1.odds[i] * p2.odds[j];
+            temp_degree[iter] = p1.degree[i] * p2.degree[j];
+            iter++;
+        }
+
+
+};
+
+polynomial operator/(const polynomial &p, int number) {
+    int temp_odds[*p.size];
+    for (int i = 0; i < *p.size; i++) {
+        temp_odds[i] = p.odds[i] / number;
+    }
+    return polynomial(p.degree[0], p.degree[*p.size - 1], temp_odds);
+};
 
 //polynomial operator*=(const polynomial &p1, const polynomial &p2) {
 //
 //};
 
-//polynomial operator/=(int number) {
-//
-//};
+polynomial operator/=(polynomial &p, int number) {
+    p = p / number;
+    return p;
+};
 
 std::stringstream &operator<<(std::stringstream &out, const polynomial &p) {
     int temp_size = *p.size;
@@ -149,3 +186,7 @@ std::stringstream &operator<<(std::stringstream &out, const polynomial &p) {
 //int &polynomial::operator[](int i) {
 //
 //};
+
+//int get(int number){
+//
+//}
