@@ -142,6 +142,33 @@ IS_2020_prog_2_sem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/build
 .PHONY : IS_2020_prog_2_sem/fast
 
+homework2/Polynomial.obj: homework2/Polynomial.cpp.obj
+
+.PHONY : homework2/Polynomial.obj
+
+# target to build an object file
+homework2/Polynomial.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/Polynomial.cpp.obj
+.PHONY : homework2/Polynomial.cpp.obj
+
+homework2/Polynomial.i: homework2/Polynomial.cpp.i
+
+.PHONY : homework2/Polynomial.i
+
+# target to preprocess a source file
+homework2/Polynomial.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/Polynomial.cpp.i
+.PHONY : homework2/Polynomial.cpp.i
+
+homework2/Polynomial.s: homework2/Polynomial.cpp.s
+
+.PHONY : homework2/Polynomial.s
+
+# target to generate assembly for a file
+homework2/Polynomial.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/Polynomial.cpp.s
+.PHONY : homework2/Polynomial.cpp.s
+
 homework2/main.obj: homework2/main.cpp.obj
 
 .PHONY : homework2/main.obj
@@ -169,33 +196,6 @@ homework2/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.s
 .PHONY : homework2/main.cpp.s
 
-homework2/polynomial.obj: homework2/polynomial.cpp.obj
-
-.PHONY : homework2/polynomial.obj
-
-# target to build an object file
-homework2/polynomial.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.obj
-.PHONY : homework2/polynomial.cpp.obj
-
-homework2/polynomial.i: homework2/polynomial.cpp.i
-
-.PHONY : homework2/polynomial.i
-
-# target to preprocess a source file
-homework2/polynomial.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.i
-.PHONY : homework2/polynomial.cpp.i
-
-homework2/polynomial.s: homework2/polynomial.cpp.s
-
-.PHONY : homework2/polynomial.s
-
-# target to generate assembly for a file
-homework2/polynomial.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/polynomial.cpp.s
-.PHONY : homework2/polynomial.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -205,12 +205,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... IS_2020_prog_2_sem
+	@echo ... homework2/Polynomial.obj
+	@echo ... homework2/Polynomial.i
+	@echo ... homework2/Polynomial.s
 	@echo ... homework2/main.obj
 	@echo ... homework2/main.i
 	@echo ... homework2/main.s
-	@echo ... homework2/polynomial.obj
-	@echo ... homework2/polynomial.i
-	@echo ... homework2/polynomial.s
 .PHONY : help
 
 
