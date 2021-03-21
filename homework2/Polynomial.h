@@ -17,7 +17,7 @@ public:
     Polynomial();
     Polynomial(int min, int max, int* odd);
     Polynomial(const Polynomial &p);
-//    ~Polynomial();
+    ~Polynomial();
     Polynomial &operator=(const Polynomial &p);
     friend bool operator==(const Polynomial &p1, const Polynomial &p2);
     friend bool operator!=(const Polynomial &p1, const Polynomial &p2);
@@ -33,7 +33,6 @@ public:
     friend Polynomial operator*=(Polynomial &p1, const Polynomial &p2);
     friend Polynomial operator/=(Polynomial &p, int number);
     friend std::stringstream &operator<< (std::stringstream &out, const Polynomial &p);
-//    friend std::stringstream &operator>> (std::istream &in, const Polynomial &p);
     int &operator[](int i);
     int &operator[](int number) const;
     double &get(double number);

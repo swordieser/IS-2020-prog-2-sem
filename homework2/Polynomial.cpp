@@ -39,7 +39,7 @@ Polynomial::Polynomial(const Polynomial &p) {
     }
 }
 
-//Polynomial::~Polynomial() = default;
+Polynomial::~Polynomial() = default;
 
 Polynomial &Polynomial::operator=(const Polynomial &p) {
     this->odds = p.odds;
@@ -209,10 +209,6 @@ std::stringstream &operator<<(std::stringstream &out, const Polynomial &p) {
     return out;
 };
 
-//std::stringstream &operator>>(std::stringstream &in, const Polynomial &p) {
-//
-//};
-
 int &Polynomial::operator[](int number) const {
     if (number > this->degree[0] && number < this->degree[*this->size - 1]) {
         int index = 0;
@@ -272,7 +268,8 @@ double &Polynomial::get(double number) {
     auto *answer = new double;
     *answer = 0;
     for (int i = 0; i < *this->size; i++) {
-        *answer += this->odds[i] * pow( number, this->degree[i]);
+        *answer += this->odds[i] * pow(number, this->degree[i]);
     }
     return *answer;
 }
+
