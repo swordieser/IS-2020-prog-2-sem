@@ -12,6 +12,7 @@ class Polynomial {
 private:
     int* degree;
     int* odds;
+    //todo no * for int
     int* size;
 public:
     Polynomial();
@@ -19,6 +20,7 @@ public:
     Polynomial(const Polynomial &p);
     ~Polynomial();
     Polynomial &operator=(const Polynomial &p);
+    //todo friend *, +, -
     friend bool operator==(const Polynomial &p1, const Polynomial &p2);
     friend bool operator!=(const Polynomial &p1, const Polynomial &p2);
     friend Polynomial operator+(const Polynomial &p1, const Polynomial &p2);
@@ -34,7 +36,9 @@ public:
     friend Polynomial operator/=(Polynomial &p, int number);
     friend std::stringstream &operator<< (std::stringstream &out, const Polynomial &p);
     int &operator[](int i);
+    //todo int
     int &operator[](int number) const;
+    //todo &???
     double &get(double number);
 };
 

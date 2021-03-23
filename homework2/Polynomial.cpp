@@ -1,6 +1,7 @@
 #include "Polynomial.h"
 
 Polynomial::Polynomial() {
+	//todo new not malloc
     this->odds = (int *) malloc(sizeof(int));
     *this->odds = 0;
     this->degree = (int *) malloc(sizeof(int));
@@ -39,14 +40,17 @@ Polynomial::Polynomial(const Polynomial &p) {
     }
 }
 
+//todo delete
 Polynomial::~Polynomial() = default;
 
 Polynomial &Polynomial::operator=(const Polynomial &p) {
+    //todo make copy
     this->odds = p.odds;
     this->degree = p.degree;
     this->size = p.size;
     return *this;
 };
+
 
 bool operator==(const Polynomial &p1, const Polynomial &p2) {
     stringstream ss1, ss2;
@@ -59,6 +63,7 @@ bool operator!=(const Polynomial &p1, const Polynomial &p2) {
     return !(p1 == p2);
 };
 
+//todo + from +=
 Polynomial operator+(const Polynomial &p1, const Polynomial &p2) {
     int min = p1.degree[0] <= p2.degree[0] ? p1.degree[0] : p2.degree[0];
     int max = p1.degree[*p1.size - 1] >= p2.degree[*p2.size - 1] ? p1.degree[*p1.size - 1] : p2.degree[*p2.size - 1];
@@ -90,7 +95,7 @@ Polynomial operator-(const Polynomial &p) {
     }
     return c;
 };
-
+//todo without new object
 Polynomial operator-(const Polynomial &p1, const Polynomial &p2) {
     return p1 + (-p2);
 };
@@ -107,6 +112,7 @@ Polynomial operator-=(Polynomial &p1, const Polynomial &p2) {
 
 Polynomial operator*(const Polynomial &p, int number) {
     int temp_odds[*p.size];
+    //todo for_each
     for (int i = 0; i < *p.size; i++) {
         temp_odds[i] = p.odds[i] * number;
     }
@@ -265,6 +271,7 @@ int &Polynomial::operator[](int number) {
 };
 
 double &Polynomial::get(double number) {
+    //todo no *
     auto *answer = new double;
     *answer = 0;
     for (int i = 0; i < *this->size; i++) {
