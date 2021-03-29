@@ -75,12 +75,14 @@ Polynomial operator+(const Polynomial &p1, const Polynomial &p2) {
 }
 
 Polynomial Polynomial::operator-() const {
-    auto p = *this;
-    for_each(p.odds, p.odds + p.size, [&](int &n) { n *= (-1); });
-    return p;
+    int *temp_odds = new int[this->size];
+    for (int i = 0; i < this->size; i++) {
+        temp_odds[i] = -this->odds[i];
+    }
+    return Polynomial(this->degree[0], this->degree[this->size - 1], temp_odds);
 }
 
-//todo without new object
+//fixed without new object
 Polynomial operator-(const Polynomial &p1, const Polynomial &p2) {
     return p1 + (-p2);
 }
