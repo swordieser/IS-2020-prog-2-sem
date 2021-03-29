@@ -1,22 +1,20 @@
 #include "Polynomial.h"
 
 Polynomial::Polynomial() {
-	//todo new not malloc
-    this->odds = (int *) malloc(sizeof(int));
+    //fixed new not malloc
+    this->odds = new int;
     *this->odds = 0;
-    this->degree = (int *) malloc(sizeof(int));
+    this->degree = new int;
     *this->degree = 0;
-    this->size = (int *) malloc(sizeof(int));
-    *this->size = 1;
+    this->size = 1;
 }
 
 Polynomial::Polynomial(int min, int max, int *odd) {
     int s = max - min + 1;
 
-    this->degree = (int *) malloc(s * sizeof(int));
-    this->odds = (int *) malloc(s * sizeof(int));
-    this->size = (int *) malloc(sizeof(int));
-    *this->size = s;
+    this->degree = new int[s];
+    this->odds = new int[s];
+    this->size = s;
 
     int d = min;
     for (int i = 0; i < s; i++) {
@@ -28,28 +26,33 @@ Polynomial::Polynomial(int min, int max, int *odd) {
 }
 
 Polynomial::Polynomial(const Polynomial &p) {
-    this->size = (int *) malloc(sizeof(int));
-    *this->size = *p.size;
+    this->size = p.size;
 
-    this->odds = (int *) malloc((*this->size) * sizeof(int));
-    this->degree = (int *) malloc((*this->size) * sizeof(int));
+    this->odds = new int[this->size];
+    this->degree = new int[this->size];
 
-    for (int i = 0; i < *this->size; i++) {
+    *this = p;
+}
+
+//fixed delete
+Polynomial::~Polynomial() {
+    delete this->degree;
+    delete this->odds;
+}
+
+Polynomial &Polynomial::operator=(const Polynomial &p) {
+    //fixed make copy
+    this->size = p.size;
+
+    this->odds = new int[this->size];
+    this->degree = new int[this->size];
+
+    for (int i = 0; i < this->size; i++) {
         this->degree[i] = p.degree[i];
         this->odds[i] = p.odds[i];
     }
-}
-
-//todo delete
-Polynomial::~Polynomial() = default;
-
-Polynomial &Polynomial::operator=(const Polynomial &p) {
-    //todo make copy
-    this->odds = p.odds;
-    this->degree = p.degree;
-    this->size = p.size;
     return *this;
-};
+}
 
 
 bool operator==(const Polynomial &p1, const Polynomial &p2) {
@@ -57,78 +60,83 @@ bool operator==(const Polynomial &p1, const Polynomial &p2) {
     ss1 << p1;
     ss2 << p2;
     return ss1.str() == ss2.str();
-};
+}
 
 bool operator!=(const Polynomial &p1, const Polynomial &p2) {
     return !(p1 == p2);
-};
+}
 
-//todo + from +=
+//fixed + from +=
 Polynomial operator+(const Polynomial &p1, const Polynomial &p2) {
-    int min = p1.degree[0] <= p2.degree[0] ? p1.degree[0] : p2.degree[0];
-    int max = p1.degree[*p1.size - 1] >= p2.degree[*p2.size - 1] ? p1.degree[*p1.size - 1] : p2.degree[*p2.size - 1];
-    int size = max - min + 1;
-    int odds[size];
+    auto p = Polynomial();
+    p += p1;
+    p += p2;
+    return p;
+}
+
+Polynomial Polynomial::operator-() const {
+    auto p = *this;
+    for_each(p.odds, p.odds + p.size, [&](int &n) { n *= (-1); });
+    return p;
+}
+
+//todo without new object
+Polynomial operator-(const Polynomial &p1, const Polynomial &p2) {
+    return p1 + (-p2);
+}
+
+Polynomial Polynomial::operator+=(const Polynomial &p) {
+    int min = this->degree[0] <= p.degree[0] ? this->degree[0] : p.degree[0];
+    int max =
+            this->degree[this->size - 1] >= p.degree[p.size - 1] ? this->degree[this->size - 1] : p.degree[p.size - 1];
+    int temp_size = max - min + 1;
+    int temp_odds[temp_size];
     int temp_degree = min;
-    for (int i = 0; i < size; i++) {
-        odds[i] = 0;
-        for (int j = 0; j < *p1.size; j++) {
-            if (p1.degree[j] == temp_degree) {
-                odds[i] += p1.odds[j];
+    for (int i = 0; i < temp_size; i++) {
+        temp_odds[i] = 0;
+        for (int j = 0; j < this->size; j++) {
+            if (this->degree[j] == temp_degree) {
+                temp_odds[i] += this->odds[j];
             }
         }
-        for (int j = 0; j < *p2.size; j++) {
-            if (p2.degree[j] == temp_degree) {
-                odds[i] += p2.odds[j];
+        for (int j = 0; j < p.size; j++) {
+            if (p.degree[j] == temp_degree) {
+                temp_odds[i] += p.odds[j];
             }
         }
         temp_degree++;
     }
 
-    return Polynomial(min, max, odds);
-};
+    *this = Polynomial(min, max, temp_odds);
+    return *this;
+}
 
-Polynomial operator-(const Polynomial &p) {
-    auto c = p;
-    for (int i = 0; i < *c.size; i++) {
-        c.odds[i] *= -1;
-    }
-    return c;
-};
-//todo without new object
-Polynomial operator-(const Polynomial &p1, const Polynomial &p2) {
-    return p1 + (-p2);
-};
-
-Polynomial operator+=(Polynomial &p1, const Polynomial &p2) {
-    p1 = p1 + p2;
-    return p1;
-};
-
-Polynomial operator-=(Polynomial &p1, const Polynomial &p2) {
-    p1 = p1 - p2;
-    return p1;
-};
+Polynomial Polynomial::operator-=(const Polynomial &p) {
+    *this = *this - p;
+    return *this;
+}
 
 Polynomial operator*(const Polynomial &p, int number) {
-    int temp_odds[*p.size];
-    //todo for_each
-    for (int i = 0; i < *p.size; i++) {
-        temp_odds[i] = p.odds[i] * number;
-    }
-    return Polynomial(p.degree[0], p.degree[*p.size - 1], temp_odds);
-};
+    int temp_odds[p.size];
+    int i = 0;
+    //fixed for_each
+    for_each(temp_odds, temp_odds + p.size, [number, p, &i](int &n) {
+        n = p.odds[i] * number;
+        i++;
+    });
+    return Polynomial(p.degree[0], p.degree[p.size - 1], temp_odds);
+}
 
 Polynomial operator*(int number, const Polynomial &p) {
     return p * number;
 }
 
 Polynomial operator*(const Polynomial &p1, const Polynomial &p2) {
-    int temp_size = *p1.size * *p2.size;
+    int temp_size = p1.size * p2.size;
     int temp_odds[temp_size], temp_degree[temp_size];
     int iter = 0;
-    for (int i = 0; i < *p1.size; i++) {
-        for (int j = 0; j < *p2.size; j++) {
+    for (int i = 0; i < p1.size; i++) {
+        for (int j = 0; j < p2.size; j++) {
             temp_odds[iter] = p1.odds[i] * p2.odds[j];
             temp_degree[iter] = p1.degree[i] + p2.degree[j];
             iter++;
@@ -154,28 +162,26 @@ Polynomial operator*(const Polynomial &p1, const Polynomial &p2) {
     }
 
     return Polynomial(min, max, polynomial_odds);
-};
+}
 
-Polynomial operator/(const Polynomial &p, int number) {
-    int temp_odds[*p.size];
-    for (int i = 0; i < *p.size; i++) {
-        temp_odds[i] = p.odds[i] / number;
-    }
-    return Polynomial(p.degree[0], p.degree[*p.size - 1], temp_odds);
-};
+Polynomial Polynomial::operator/(int number) {
+    auto temp = *this;
+    for_each(temp.odds, temp.odds + temp.size, [&](int &n) { n /= number; });
+    return temp;
+}
 
-Polynomial operator*=(Polynomial &p1, const Polynomial &p2) {
-    p1 = p1 * p2;
-    return p1;
-};
+Polynomial &Polynomial::operator*=(const Polynomial &p) {
+    *this = *this * p;
+    return *this;
+}
 
-Polynomial operator/=(Polynomial &p, int number) {
-    p = p / number;
-    return p;
-};
+Polynomial &Polynomial::operator/=(int number) {
+    *this = *this / number;
+    return *this;
+}
 
 std::stringstream &operator<<(std::stringstream &out, const Polynomial &p) {
-    int temp_size = *p.size;
+    int temp_size = p.size;
     if (temp_size == 1 and p.odds[0] == 0) {
         out << "0";
     } else {
@@ -204,21 +210,21 @@ std::stringstream &operator<<(std::stringstream &out, const Polynomial &p) {
         }
     }
     int temp = 0;
-    for (int i = 0; i < *p.size; i++) {
+    for (int i = 0; i < p.size; i++) {
         if (p.odds[i] == 0) {
             temp++;
         }
     }
-    if (temp == *p.size && out.str().empty()) {
+    if (temp == p.size && out.str().empty()) {
         out << "0";
     }
     return out;
-};
+}
 
-int &Polynomial::operator[](int number) const {
-    if (number > this->degree[0] && number < this->degree[*this->size - 1]) {
+int Polynomial::operator[](int number) const {
+    if (number > this->degree[0] && number < this->degree[this->size - 1]) {
         int index = 0;
-        for (int i = 0; i < *this->size; i++) {
+        for (int i = 0; i < this->size; i++) {
             if (number == this->degree[i]) {
                 break;
             }
@@ -226,18 +232,15 @@ int &Polynomial::operator[](int number) const {
         }
         return this->odds[index];
     } else {
-        int *a = new int;
-        *a = 0;
-        return *a;
+        return 0;
     }
 }
 
 int &Polynomial::operator[](int number) {
-    if (number > this->degree[0] && number < this->degree[*this->size - 1]) {
-        const Polynomial p = *this;
-        return p[number];
+    if (number > this->degree[0] && number < this->degree[this->size - 1]) {
+        return this->odds[number];
     } else if (number < this->degree[0]) {
-        int max = this->degree[*this->size - 1];
+        int max = this->degree[this->size - 1];
         int min = number;
         int temp_size = max - min + 1;
         int temp_odds[temp_size];
@@ -245,8 +248,8 @@ int &Polynomial::operator[](int number) {
             temp_odds[i] = 0;
         }
 
-        for (int i = 1; i < *this->size; i++) {
-            temp_odds[temp_size - i] = this->odds[*this->size - i];
+        for (int i = 1; i < this->size; i++) {
+            temp_odds[temp_size - i] = this->odds[this->size - i];
         }
 
         *this = Polynomial(min, max, temp_odds);
@@ -261,22 +264,24 @@ int &Polynomial::operator[](int number) {
             temp_odds[i] = 0;
         }
 
-        for (int i = 0; i < *this->size; i++) {
+        for (int i = 0; i < this->size; i++) {
             temp_odds[i] = this->odds[i];
         }
 
         *this = Polynomial(min, max, temp_odds);
-        return this->odds[*this->size - 1];
+        return this->odds[this->size - 1];
     }
-};
-
-double &Polynomial::get(double number) {
-    //todo no *
-    auto *answer = new double;
-    *answer = 0;
-    for (int i = 0; i < *this->size; i++) {
-        *answer += this->odds[i] * pow(number, this->degree[i]);
-    }
-    return *answer;
 }
+
+double Polynomial::get(double number) {
+    //fixed no *
+    double answer = 0;
+    double x = pow(number, this->degree[0]);
+    for (int i = 0; i < this->size; i++) {
+        answer += this->odds[i] * x;
+        x *= number;
+    }
+    return answer;
+}
+
 
