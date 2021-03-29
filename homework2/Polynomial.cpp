@@ -36,8 +36,8 @@ Polynomial::Polynomial(const Polynomial &p) {
 
 //fixed delete
 Polynomial::~Polynomial() {
-    delete this->degree;
-    delete this->odds;
+    delete[] this->degree;
+    delete[] this->odds;
 }
 
 Polynomial &Polynomial::operator=(const Polynomial &p) {
