@@ -239,8 +239,15 @@ int Polynomial::operator[](int number) const {
 }
 
 int &Polynomial::operator[](int number) {
-    if (number > this->degree[0] && number < this->degree[this->size - 1]) {
-        return this->odds[number];
+    if (number >= this->degree[0] && number <= this->degree[this->size - 1]) {
+        int index = 0;
+        for (int i = 0; i < this->size; i++) {
+            if (number == this->degree[i]) {
+                index = i;
+                break;
+            }
+        }
+        return this->odds[index];
     } else if (number < this->degree[0]) {
         int max = this->degree[this->size - 1];
         int min = number;
