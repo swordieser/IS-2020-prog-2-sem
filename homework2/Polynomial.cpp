@@ -1,7 +1,6 @@
 #include "Polynomial.h"
 
 Polynomial::Polynomial() {
-    //fixed new not malloc
     this->odds = new int;
     *this->odds = 0;
     this->degree = new int;
@@ -30,7 +29,7 @@ Polynomial::Polynomial(const Polynomial &p) {
 
     this->odds = new int[this->size];
     this->degree = new int[this->size];
-
+    //todo no = in copy-constructor
     *this = p;
 }
 
@@ -41,7 +40,7 @@ Polynomial::~Polynomial() {
 }
 
 Polynomial &Polynomial::operator=(const Polynomial &p) {
-    //fixed make copy
+	//todo delete before
     this->size = p.size;
 
     this->odds = new int[this->size];
@@ -67,9 +66,10 @@ bool operator!=(const Polynomial &p1, const Polynomial &p2) {
 }
 
 //fixed + from +=
+//todo use copy-constructor
 Polynomial operator+(const Polynomial &p1, const Polynomial &p2) {
-    auto p = Polynomial();
-    p += p1;
+    auto p = Polynomial(p1);
+//    p += p1;
     p += p2;
     return p;
 }
@@ -82,7 +82,7 @@ Polynomial Polynomial::operator-() const {
     return Polynomial(this->degree[0], this->degree[this->size - 1], temp_odds);
 }
 
-//fixed without new object
+//todo without new object
 Polynomial operator-(const Polynomial &p1, const Polynomial &p2) {
     return p1 + (-p2);
 }
@@ -112,7 +112,7 @@ Polynomial Polynomial::operator+=(const Polynomial &p) {
     *this = Polynomial(min, max, temp_odds);
     return *this;
 }
-
+//todo - from -=
 Polynomial Polynomial::operator-=(const Polynomial &p) {
     *this = *this - p;
     return *this;
@@ -177,6 +177,7 @@ Polynomial &Polynomial::operator*=(const Polynomial &p) {
     return *this;
 }
 
+//todo / from /=
 Polynomial &Polynomial::operator/=(int number) {
     *this = *this / number;
     return *this;
@@ -223,6 +224,7 @@ std::stringstream &operator<<(std::stringstream &out, const Polynomial &p) {
     return out;
 }
 
+//todo O(1)
 int Polynomial::operator[](int number) const {
     if (number > this->degree[0] && number < this->degree[this->size - 1]) {
         int index = 0;
