@@ -29,8 +29,11 @@ Polynomial::Polynomial(const Polynomial &p) {
 
     this->odds = new int[this->size];
     this->degree = new int[this->size];
-    //todo no = in copy-constructor
-    *this = p;
+    //fixed no = in copy-constructor
+    for (int i = 0; i < this->size; i++) {
+        this->degree[i] = p.degree[i];
+        this->odds[i] = p.odds[i];
+    }
 }
 
 //fixed delete
@@ -40,9 +43,12 @@ Polynomial::~Polynomial() {
 }
 
 Polynomial &Polynomial::operator=(const Polynomial &p) {
-	//todo delete before
-    this->size = p.size;
+	//fixed delete before
+	delete[] this->degree;
+	delete[] this->odds;
 
+
+    this->size = p.size;
     this->odds = new int[this->size];
     this->degree = new int[this->size];
 
@@ -66,25 +72,26 @@ bool operator!=(const Polynomial &p1, const Polynomial &p2) {
 }
 
 //fixed + from +=
-//todo use copy-constructor
+//fixed use copy-constructor
 Polynomial operator+(const Polynomial &p1, const Polynomial &p2) {
-    auto p = Polynomial(p1);
-//    p += p1;
+    auto p = p1;
     p += p2;
     return p;
 }
 
 Polynomial Polynomial::operator-() const {
-    int *temp_odds = new int[this->size];
+    auto temp = *this;
     for (int i = 0; i < this->size; i++) {
-        temp_odds[i] = -this->odds[i];
+        temp.odds[i] = -this->odds[i];
     }
-    return Polynomial(this->degree[0], this->degree[this->size - 1], temp_odds);
+    return temp;
 }
 
-//todo without new object
+//fixed without new object
 Polynomial operator-(const Polynomial &p1, const Polynomial &p2) {
-    return p1 + (-p2);
+    auto p = p1;
+    p -= p2;
+    return p;
 }
 
 Polynomial Polynomial::operator+=(const Polynomial &p) {
@@ -108,13 +115,32 @@ Polynomial Polynomial::operator+=(const Polynomial &p) {
         }
         temp_degree++;
     }
-
     *this = Polynomial(min, max, temp_odds);
     return *this;
 }
-//todo - from -=
+//fixed - from -=
 Polynomial Polynomial::operator-=(const Polynomial &p) {
-    *this = *this - p;
+    int min = this->degree[0] <= p.degree[0] ? this->degree[0] : p.degree[0];
+    int max =
+            this->degree[this->size - 1] >= p.degree[p.size - 1] ? this->degree[this->size - 1] : p.degree[p.size - 1];
+    int temp_size = max - min + 1;
+    int temp_odds[temp_size];
+    int temp_degree = min;
+    for (int i = 0; i < temp_size; i++) {
+        temp_odds[i] = 0;
+        for (int j = 0; j < this->size; j++) {
+            if (this->degree[j] == temp_degree) {
+                temp_odds[i] -= this->odds[j];
+            }
+        }
+        for (int j = 0; j < p.size; j++) {
+            if (p.degree[j] == temp_degree) {
+                temp_odds[i] -= p.odds[j];
+            }
+        }
+        temp_degree++;
+    }
+    *this = Polynomial(min, max, temp_odds);
     return *this;
 }
 
@@ -168,7 +194,7 @@ Polynomial operator*(const Polynomial &p1, const Polynomial &p2) {
 
 Polynomial Polynomial::operator/(int number) {
     auto temp = *this;
-    for_each(temp.odds, temp.odds + temp.size, [&](int &n) { n /= number; });
+    temp /= number;
     return temp;
 }
 
@@ -177,9 +203,9 @@ Polynomial &Polynomial::operator*=(const Polynomial &p) {
     return *this;
 }
 
-//todo / from /=
+//fixed / from /=
 Polynomial &Polynomial::operator/=(int number) {
-    *this = *this / number;
+    for_each(this->odds, this->odds + this->size, [&](int &n) { n /= number; });
     return *this;
 }
 
@@ -224,17 +250,10 @@ std::stringstream &operator<<(std::stringstream &out, const Polynomial &p) {
     return out;
 }
 
-//todo O(1)
+//fixed O(1)
 int Polynomial::operator[](int number) const {
-    if (number > this->degree[0] && number < this->degree[this->size - 1]) {
-        int index = 0;
-        for (int i = 0; i < this->size; i++) {
-            if (number == this->degree[i]) {
-                break;
-            }
-            index++;
-        }
-        return this->odds[index];
+    if (number >= this->degree[0] && number <= this->degree[this->size - 1]) {
+        return this->odds[(this->size-1) - (this->degree[this->size - 1] - number)];
     } else {
         return 0;
     }
