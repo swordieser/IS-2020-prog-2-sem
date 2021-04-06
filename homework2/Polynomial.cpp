@@ -76,13 +76,13 @@ bool operator!=(const Polynomial &p1, const Polynomial &p2) {
 }
 
 Polynomial operator+(const Polynomial &p1, const Polynomial &p2) {
-    auto p = p1;
+    Polynomial p = p1;
     p += p2;
     return p;
 }
 
 Polynomial Polynomial::operator-() const {
-    auto temp = *this;
+    Polynomial temp = *this;
     for (int i = 0; i < this->size; i++) {
         temp.odds[i] = -this->odds[i];
     }
@@ -95,7 +95,7 @@ Polynomial operator-(const Polynomial &p1, const Polynomial &p2) {
     return p;
 }
 
-Polynomial Polynomial::plusMinus(Polynomial &p1, const Polynomial &p2, int num) const {
+Polynomial Polynomial::plusMinus(Polynomial &p1, const Polynomial &p2, int num) {
     int min = p1.degree[0] <= p2.degree[0] ? p1.degree[0] : p2.degree[0];
     int max =
             p1.degree[p1.size - 1] >= p2.degree[p2.size - 1] ? p1.degree[p1.size - 1] : p2.degree[p2.size - 1];
@@ -117,7 +117,9 @@ Polynomial Polynomial::plusMinus(Polynomial &p1, const Polynomial &p2, int num) 
         temp_degree++;
     }
 
-    return Polynomial(min, max, temp_odds);
+    p1 = Polynomial(min, max, temp_odds);
+
+    return p1;
 }
 
 Polynomial Polynomial::operator+=(const Polynomial &p) {
