@@ -58,6 +58,8 @@ public:
     int &operator[](int i);
 
     double get(double number);
+
+    Polynomial plusMinus(Polynomial &p1, const Polynomial &p2, int num) const;
 };
 
 

@@ -42,10 +42,14 @@ Polynomial::~Polynomial() {
 }
 
 Polynomial &Polynomial::operator=(const Polynomial &p) {
-    //todo check if p = this
+    //fixed check if p = this
 
-	delete[] this->degree;
-	delete[] this->odds;
+    if (&p == this) {
+        return *this;
+    }
+
+    delete[] this->degree;
+    delete[] this->odds;
 
 
     this->size = p.size;
@@ -91,54 +95,38 @@ Polynomial operator-(const Polynomial &p1, const Polynomial &p2) {
     return p;
 }
 
-Polynomial Polynomial::operator+=(const Polynomial &p) {
-    int min = this->degree[0] <= p.degree[0] ? this->degree[0] : p.degree[0];
+Polynomial Polynomial::plusMinus(Polynomial &p1, const Polynomial &p2, int num) const {
+    int min = p1.degree[0] <= p2.degree[0] ? p1.degree[0] : p2.degree[0];
     int max =
-            this->degree[this->size - 1] >= p.degree[p.size - 1] ? this->degree[this->size - 1] : p.degree[p.size - 1];
+            p1.degree[p1.size - 1] >= p2.degree[p2.size - 1] ? p1.degree[p1.size - 1] : p2.degree[p2.size - 1];
     int temp_size = max - min + 1;
     int temp_odds[temp_size];
     int temp_degree = min;
     for (int i = 0; i < temp_size; i++) {
         temp_odds[i] = 0;
-        for (int j = 0; j < this->size; j++) {
-            if (this->degree[j] == temp_degree) {
-                temp_odds[i] += this->odds[j];
+        for (int j = 0; j < p1.size; j++) {
+            if (p1.degree[j] == temp_degree) {
+                temp_odds[i] += p1.odds[j];
             }
         }
-        for (int j = 0; j < p.size; j++) {
-            if (p.degree[j] == temp_degree) {
-                temp_odds[i] += p.odds[j];
+        for (int j = 0; j < p2.size; j++) {
+            if (p2.degree[j] == temp_degree) {
+                temp_odds[i] += p2.odds[j] * num;
             }
         }
         temp_degree++;
     }
-    *this = Polynomial(min, max, temp_odds);
-    return *this;
+
+    return Polynomial(min, max, temp_odds);
 }
-//todo copy-paste from +=
+
+Polynomial Polynomial::operator+=(const Polynomial &p) {
+    return plusMinus(*this, p, 1);
+}
+
+//fixed copy-paste from +=
 Polynomial Polynomial::operator-=(const Polynomial &p) {
-    int min = this->degree[0] <= p.degree[0] ? this->degree[0] : p.degree[0];
-    int max =
-            this->degree[this->size - 1] >= p.degree[p.size - 1] ? this->degree[this->size - 1] : p.degree[p.size - 1];
-    int temp_size = max - min + 1;
-    int temp_odds[temp_size];
-    int temp_degree = min;
-    for (int i = 0; i < temp_size; i++) {
-        temp_odds[i] = 0;
-        for (int j = 0; j < this->size; j++) {
-            if (this->degree[j] == temp_degree) {
-                temp_odds[i] -= this->odds[j];
-            }
-        }
-        for (int j = 0; j < p.size; j++) {
-            if (p.degree[j] == temp_degree) {
-                temp_odds[i] -= p.odds[j];
-            }
-        }
-        temp_degree++;
-    }
-    *this = Polynomial(min, max, temp_odds);
-    return *this;
+    return plusMinus(*this, p, -1);
 }
 
 Polynomial operator*(const Polynomial &p, int number) {
@@ -249,7 +237,7 @@ std::stringstream &operator<<(std::stringstream &out, const Polynomial &p) {
 
 int Polynomial::operator[](int number) const {
     if (number >= this->degree[0] && number <= this->degree[this->size - 1]) {
-        return this->odds[(this->size-1) - (this->degree[this->size - 1] - number)];
+        return this->odds[(this->size - 1) - (this->degree[this->size - 1] - number)];
     } else {
         return 0;
     }
