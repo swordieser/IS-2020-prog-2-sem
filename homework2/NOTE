@@ -4,5 +4,6 @@ It's compiled
 Assertion failed: a + b == b + a, file main.cpp, line 32
 
 No warnings
+Push with errors was succesfull
 
 
