@@ -29,21 +29,21 @@ Polynomial::Polynomial(const Polynomial &p) {
 
     this->odds = new int[this->size];
     this->degree = new int[this->size];
-    //fixed no = in copy-constructor
     for (int i = 0; i < this->size; i++) {
         this->degree[i] = p.degree[i];
         this->odds[i] = p.odds[i];
     }
 }
 
-//fixed delete
+
 Polynomial::~Polynomial() {
     delete[] this->degree;
     delete[] this->odds;
 }
 
 Polynomial &Polynomial::operator=(const Polynomial &p) {
-	//fixed delete before
+    //todo check if p = this
+
 	delete[] this->degree;
 	delete[] this->odds;
 
@@ -71,8 +71,6 @@ bool operator!=(const Polynomial &p1, const Polynomial &p2) {
     return !(p1 == p2);
 }
 
-//fixed + from +=
-//fixed use copy-constructor
 Polynomial operator+(const Polynomial &p1, const Polynomial &p2) {
     auto p = p1;
     p += p2;
@@ -87,7 +85,6 @@ Polynomial Polynomial::operator-() const {
     return temp;
 }
 
-//fixed without new object
 Polynomial operator-(const Polynomial &p1, const Polynomial &p2) {
     auto p = p1;
     p -= p2;
@@ -118,7 +115,7 @@ Polynomial Polynomial::operator+=(const Polynomial &p) {
     *this = Polynomial(min, max, temp_odds);
     return *this;
 }
-//fixed - from -=
+//todo copy-paste from +=
 Polynomial Polynomial::operator-=(const Polynomial &p) {
     int min = this->degree[0] <= p.degree[0] ? this->degree[0] : p.degree[0];
     int max =
@@ -147,7 +144,6 @@ Polynomial Polynomial::operator-=(const Polynomial &p) {
 Polynomial operator*(const Polynomial &p, int number) {
     int temp_odds[p.size];
     int i = 0;
-    //fixed for_each
     for_each(temp_odds, temp_odds + p.size, [number, p, &i](int &n) {
         n = p.odds[i] * number;
         i++;
@@ -203,7 +199,7 @@ Polynomial &Polynomial::operator*=(const Polynomial &p) {
     return *this;
 }
 
-//fixed / from /=
+
 Polynomial &Polynomial::operator/=(int number) {
     for_each(this->odds, this->odds + this->size, [&](int &n) { n /= number; });
     return *this;
@@ -250,7 +246,7 @@ std::stringstream &operator<<(std::stringstream &out, const Polynomial &p) {
     return out;
 }
 
-//fixed O(1)
+
 int Polynomial::operator[](int number) const {
     if (number >= this->degree[0] && number <= this->degree[this->size - 1]) {
         return this->odds[(this->size-1) - (this->degree[this->size - 1] - number)];
@@ -304,7 +300,6 @@ int &Polynomial::operator[](int number) {
 }
 
 double Polynomial::get(double number) {
-    //fixed no *
     double answer = 0;
     double x = pow(number, this->degree[0]);
     for (int i = 0; i < this->size; i++) {

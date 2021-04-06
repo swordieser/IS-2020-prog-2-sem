@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Polynomial.h"
+#include "polynomial.h"
 #include <sstream>
 #include <assert.h>
 
