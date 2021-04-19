@@ -12,6 +12,7 @@ private:
     std::vector<std::string> streets;
     std::vector<std::string> routes;
     std::pair<float, float> coordinates;
+
 public:
     Station();
 
@@ -34,6 +35,8 @@ public:
     void set_coordinates(std::string s);
 
     const std::pair<float, float> &get_coordinates() const;
+
+    static float calculate_length_of_route(const std::vector<std::pair<float, float>>& stations_coordinates);
 };
 
 
