@@ -142,59 +142,86 @@ IS_2020_prog_2_sem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/build
 .PHONY : IS_2020_prog_2_sem/fast
 
-homework2/Polynomial.obj: homework2/Polynomial.cpp.obj
+homework3/Station.obj: homework3/Station.cpp.obj
 
-.PHONY : homework2/Polynomial.obj
-
-# target to build an object file
-homework2/Polynomial.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/Polynomial.cpp.obj
-.PHONY : homework2/Polynomial.cpp.obj
-
-homework2/Polynomial.i: homework2/Polynomial.cpp.i
-
-.PHONY : homework2/Polynomial.i
-
-# target to preprocess a source file
-homework2/Polynomial.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/Polynomial.cpp.i
-.PHONY : homework2/Polynomial.cpp.i
-
-homework2/Polynomial.s: homework2/Polynomial.cpp.s
-
-.PHONY : homework2/Polynomial.s
-
-# target to generate assembly for a file
-homework2/Polynomial.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/Polynomial.cpp.s
-.PHONY : homework2/Polynomial.cpp.s
-
-homework2/main.obj: homework2/main.cpp.obj
-
-.PHONY : homework2/main.obj
+.PHONY : homework3/Station.obj
 
 # target to build an object file
-homework2/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.obj
-.PHONY : homework2/main.cpp.obj
+homework3/Station.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework3/Station.cpp.obj
+.PHONY : homework3/Station.cpp.obj
 
-homework2/main.i: homework2/main.cpp.i
+homework3/Station.i: homework3/Station.cpp.i
 
-.PHONY : homework2/main.i
+.PHONY : homework3/Station.i
 
 # target to preprocess a source file
-homework2/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.i
-.PHONY : homework2/main.cpp.i
+homework3/Station.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework3/Station.cpp.i
+.PHONY : homework3/Station.cpp.i
 
-homework2/main.s: homework2/main.cpp.s
+homework3/Station.s: homework3/Station.cpp.s
 
-.PHONY : homework2/main.s
+.PHONY : homework3/Station.s
 
 # target to generate assembly for a file
-homework2/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework2/main.cpp.s
-.PHONY : homework2/main.cpp.s
+homework3/Station.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework3/Station.cpp.s
+.PHONY : homework3/Station.cpp.s
+
+homework3/main.obj: homework3/main.cpp.obj
+
+.PHONY : homework3/main.obj
+
+# target to build an object file
+homework3/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework3/main.cpp.obj
+.PHONY : homework3/main.cpp.obj
+
+homework3/main.i: homework3/main.cpp.i
+
+.PHONY : homework3/main.i
+
+# target to preprocess a source file
+homework3/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework3/main.cpp.i
+.PHONY : homework3/main.cpp.i
+
+homework3/main.s: homework3/main.cpp.s
+
+.PHONY : homework3/main.s
+
+# target to generate assembly for a file
+homework3/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework3/main.cpp.s
+.PHONY : homework3/main.cpp.s
+
+pugixml-1.11/src/pugixml.obj: pugixml-1.11/src/pugixml.cpp.obj
+
+.PHONY : pugixml-1.11/src/pugixml.obj
+
+# target to build an object file
+pugixml-1.11/src/pugixml.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/pugixml-1.11/src/pugixml.cpp.obj
+.PHONY : pugixml-1.11/src/pugixml.cpp.obj
+
+pugixml-1.11/src/pugixml.i: pugixml-1.11/src/pugixml.cpp.i
+
+.PHONY : pugixml-1.11/src/pugixml.i
+
+# target to preprocess a source file
+pugixml-1.11/src/pugixml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/pugixml-1.11/src/pugixml.cpp.i
+.PHONY : pugixml-1.11/src/pugixml.cpp.i
+
+pugixml-1.11/src/pugixml.s: pugixml-1.11/src/pugixml.cpp.s
+
+.PHONY : pugixml-1.11/src/pugixml.s
+
+# target to generate assembly for a file
+pugixml-1.11/src/pugixml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/pugixml-1.11/src/pugixml.cpp.s
+.PHONY : pugixml-1.11/src/pugixml.cpp.s
 
 # Help Target
 help:
@@ -205,12 +232,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... IS_2020_prog_2_sem
-	@echo ... homework2/Polynomial.obj
-	@echo ... homework2/Polynomial.i
-	@echo ... homework2/Polynomial.s
-	@echo ... homework2/main.obj
-	@echo ... homework2/main.i
-	@echo ... homework2/main.s
+	@echo ... homework3/Station.obj
+	@echo ... homework3/Station.i
+	@echo ... homework3/Station.s
+	@echo ... homework3/main.obj
+	@echo ... homework3/main.i
+	@echo ... homework3/main.s
+	@echo ... pugixml-1.11/src/pugixml.obj
+	@echo ... pugixml-1.11/src/pugixml.i
+	@echo ... pugixml-1.11/src/pugixml.s
 .PHONY : help
 
 

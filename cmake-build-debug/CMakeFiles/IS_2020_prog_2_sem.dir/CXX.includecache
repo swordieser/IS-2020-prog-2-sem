@@ -6,23 +6,41 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/Polynomial.h
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.cpp
+Station.h
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.h
+
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.h
+string
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/string
 vector
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/vector
-cmath
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/cmath
-sstream
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/sstream
-algorithm
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/vector
+
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/main.cpp
+../pugixml-1.11/src/pugixml.hpp
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/pugixml-1.11/src/pugixml.hpp
+iostream
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/iostream
+Station.h
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.h
+clocale
+-
+fstream
 -
 
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/main.cpp
-iostream
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/pugixml-1.11/src/pugiconfig.hpp
+
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/pugixml-1.11/src/pugixml.hpp
+pugiconfig.hpp
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/pugixml-1.11/src/pugiconfig.hpp
+stddef.h
 -
-polynomial.h
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework2/Polynomial.h
-sstream
+exception
 -
-assert.h
+iterator
+-
+iosfwd
+-
+string
 -
 
