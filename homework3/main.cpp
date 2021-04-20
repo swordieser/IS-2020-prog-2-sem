@@ -5,9 +5,10 @@
 #include <fstream>
 #include "unordered_map"
 #include "unordered_set"
+#include "windows.h"
 
 int main() {
-    setlocale(LC_CTYPE, "rus");
+    SetConsoleOutputCP(CP_UTF8);
     pugi::xml_document doc;
     doc.load_file("../homework3/transport.xml");
     std::vector<Station> stations;
@@ -86,14 +87,6 @@ int main() {
         }
     }
 
-    for (auto &station : stations) {
-        for (auto &street : station.get_streets()) {
-            if (street.empty()){
-                std::cout << station.get_number() << std::endl;
-            }
-        }
-    }
-
     ///Task 3
     std::unordered_map<std::string, unsigned> stations_at_street;
     for (auto &station : stations) {
@@ -117,21 +110,21 @@ int main() {
 
     ///Output
     std::ofstream fout("../homework3/output.txt");
-    fout << "Çàäàíèå #1" << std::endl;
+    fout << "Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ #1" << std::endl;
     for (auto &type : types_of_transport) {
-        fout << type << " : " << max_station_at_route_by_type.at(type).first << " — "
-             << max_station_at_route_by_type.at(type).second << " îñòàíîâîê" << std::endl;
+        fout << type << " : " << max_station_at_route_by_type.at(type).first << " â€” "
+             << max_station_at_route_by_type.at(type).second << " Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ðº" << std::endl;
     }
     fout << std::endl;
 
-    fout << "Çàäàíèå #2" << std::endl;
+    fout << "Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ #2" << std::endl;
     for (auto &type : types_of_transport){
-        fout << type << " : " << max_length_of_route_by_type.at(type).first << " — "
+        fout << type << " : " << max_length_of_route_by_type.at(type).first << " â€” "
              << max_length_of_route_by_type.at(type).second  << std::endl;
     }
     fout << std::endl;
 
-    fout << "Çàäàíèå #3" << std::endl;
-    fout << maximal.first << " — " << maximal.second;
+    fout << "Ð—Ð°Ð´Ð°Ð½Ð¸Ðµ #3" << std::endl;
+    fout << maximal.first << " â€” " << maximal.second;
 }
 
