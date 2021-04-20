@@ -48,7 +48,7 @@ int main() {
                 }
             }
         }
-
+        //todo first decond
         for (auto[route, number_of_station] : stations_at_route) {
             if (number_of_station > max_station_at_route_by_type.at(type).second) {
                 max_station_at_route_by_type.at(type).first = route;
