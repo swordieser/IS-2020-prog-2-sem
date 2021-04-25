@@ -1,7 +1,6 @@
 #include "../pugixml-1.11/src/pugixml.hpp"
 #include "iostream"
 #include "Station.h"
-#include <clocale>
 #include <fstream>
 #include "unordered_map"
 #include "unordered_set"
@@ -48,11 +47,12 @@ int main() {
                 }
             }
         }
-        //todo first decond
-        for (auto[route, number_of_station] : stations_at_route) {
-            if (number_of_station > max_station_at_route_by_type.at(type).second) {
-                max_station_at_route_by_type.at(type).first = route;
-                max_station_at_route_by_type.at(type).second = number_of_station;
+        //fixed first second
+        for (auto[new_route, new_number_of_station] : stations_at_route) {
+            auto &[route, number_of_station] = max_station_at_route_by_type.at(type);
+            if (new_number_of_station > number_of_station) {
+                route = new_route;
+                number_of_station = new_number_of_station;
             }
         }
     }
@@ -77,12 +77,13 @@ int main() {
                 }
             }
         }
-        for (auto[route, station_coordinates] : station_coordinates_at_route) {
-            float length = Station::calculate_length_of_route(station_coordinates);
+        for (auto[new_route, station_coordinates] : station_coordinates_at_route) {
+            float new_length = Station::calculate_length_of_route(station_coordinates);
 
-            if (length > max_length_of_route_by_type.at(type).second) {
-                max_length_of_route_by_type.at(type).first = route;
-                max_length_of_route_by_type.at(type).second = length;
+            auto &[route, length]  = max_length_of_route_by_type.at(type);
+            if (new_length > length) {
+                route = new_route;
+                length = new_length;
             }
         }
     }
@@ -101,10 +102,11 @@ int main() {
         }
     }
     std::pair<std::string, unsigned> maximal;
-    for (auto &[street, number_of_station] : stations_at_street) {
-        if (number_of_station > maximal.second) {
-            maximal.first = street;
-            maximal.second = number_of_station;
+    for (auto &[new_street, new_number_of_station] : stations_at_street) {
+        auto &[street, number_of_station] = maximal;
+        if (new_number_of_station > number_of_station) {
+            street = new_street;
+            number_of_station = new_number_of_station;
         }
     }
 
@@ -112,19 +114,20 @@ int main() {
     std::ofstream fout("../homework3/output.txt");
     fout << "Задание #1" << std::endl;
     for (auto &type : types_of_transport) {
-        fout << type << " : " << max_station_at_route_by_type.at(type).first << " — "
-             << max_station_at_route_by_type.at(type).second << " остановок" << std::endl;
+        auto[route, number_of_station] = max_station_at_route_by_type.at(type);
+        fout << type << " : " << route << " — " << number_of_station << " остановок" << std::endl;
     }
     fout << std::endl;
 
     fout << "Задание #2" << std::endl;
-    for (auto &type : types_of_transport){
-        fout << type << " : " << max_length_of_route_by_type.at(type).first << " — "
-             << max_length_of_route_by_type.at(type).second  << std::endl;
+    for (auto &type : types_of_transport) {
+        auto[route, length] = max_length_of_route_by_type.at(type);
+        fout << type << " : " << route << " — " << length << std::endl;
     }
     fout << std::endl;
 
     fout << "Задание #3" << std::endl;
-    fout << maximal.first << " — " << maximal.second;
+    auto [street, number_of_station] = maximal;
+    fout << street << " — " << number_of_station;
 }
 
