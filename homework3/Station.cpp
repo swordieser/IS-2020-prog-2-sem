@@ -2,6 +2,10 @@
 #include "cmath"
 #include "cfloat"
 
+const float ONE_DEGREE_MERIDIAN = 111.0;
+const float ONE_DEGREE_LATITUDE = 58.0;
+
+
 
 Station::Station() = default;
 
@@ -69,7 +73,10 @@ const std::pair<float, float> &Station::get_coordinates() const {
 }
 
 float get_distance_between_station(std::pair<float, float> s1, std::pair<float, float> s2) {
-    return (float) sqrt(pow((s1.first - s2.first) * 111.0, 2) + pow((s1.second - s2.second) * 58, 2));
+    auto [first_longitude, first_latitude] = s1;
+    auto [second_longitude, second_latitude] = s2;
+    return (float) sqrt(pow((first_longitude - second_longitude) * ONE_DEGREE_MERIDIAN, 2) +
+                        pow((first_latitude - second_latitude) * ONE_DEGREE_LATITUDE, 2));
 }
 
 float Station::calculate_length_of_route(const std::vector<std::pair<float, float>> &stations_coordinates) {

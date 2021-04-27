@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.cpp
+Station.h
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.h
+cmath
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/cmath
+cfloat
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/cfloat
+
 C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.h
 string
 C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/string
@@ -19,8 +27,6 @@ iostream
 C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/iostream
 Station.h
 C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.h
-clocale
--
 fstream
 -
 unordered_map
