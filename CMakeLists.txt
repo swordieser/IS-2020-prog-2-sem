@@ -7,4 +7,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 #add_executable(IS_2020_prog_2_sem homework2/main.cpp homework2/Polynomial.cpp homework2/Polynomial.h)
 
-add_executable(IS_2020_prog_2_sem homework3/main.cpp homework3/Station.cpp homework3/Station.h pugixml-1.11/src/pugixml.cpp )
+#add_executable(IS_2020_prog_2_sem homework3/main.cpp homework3/Station.cpp homework3/Station.h pugixml-1.11/src/pugixml.cpp )
+
+add_executable(IS_2020_prog_2_sem homework4/main.cpp homework4/predicate.hpp)

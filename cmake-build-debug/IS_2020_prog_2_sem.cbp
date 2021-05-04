@@ -80,19 +80,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.cpp">
+		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework4/main.cpp">
 			<Option target="IS_2020_prog_2_sem"/>
 		</Unit>
-		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/Station.h">
-			<Option target="IS_2020_prog_2_sem"/>
-		</Unit>
-		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework3/main.cpp">
-			<Option target="IS_2020_prog_2_sem"/>
-		</Unit>
-		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/pugixml-1.11/src/pugixml.cpp">
-			<Option target="IS_2020_prog_2_sem"/>
-		</Unit>
-		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/pugixml-1.11/src/pugixml.hpp">
+		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework4/predicate.hpp">
 			<Option target="IS_2020_prog_2_sem"/>
 		</Unit>
 		<Unit filename="C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/CMakeLists.txt">
