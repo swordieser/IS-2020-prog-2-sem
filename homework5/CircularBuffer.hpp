@@ -7,6 +7,8 @@ public:
         this->position = position;
     }
 
+
+
     T &operator*() {
         return *this->position;
     };
@@ -19,12 +21,6 @@ public:
     CircularBufferIterator &operator++() {
         ++this->position;
         return *this;
-    }
-
-    CircularBufferIterator operator++(int) {
-        CircularBufferIterator tmp(*this);
-        operator++();
-        return tmp;
     }
 
     CircularBufferIterator &operator--() {
@@ -248,7 +244,7 @@ public:
         if (index < this->quantity) {
             return this->buffer[(this->start + index) % this->capacity];
         } else {
-            throw std::logic_error("Wrong index, buddy");
+            throw std::logic_error("Wrong index");
         }
     }
 
@@ -256,7 +252,7 @@ public:
         if (index < this->quantity) {
             return this->buffer[(this->start + index) % this->capacity];
         } else {
-            throw std::logic_error("Wrong index, buddy");
+            throw std::logic_error("Wrong index");
         }
     }
 
