@@ -7,8 +7,6 @@ public:
         this->position = position;
     }
 
-
-
     T &operator*() {
         return *this->position;
     };
@@ -17,7 +15,6 @@ public:
         return this->position;
     }
 
-
     CircularBufferIterator &operator++() {
         ++this->position;
         return *this;
@@ -25,12 +22,6 @@ public:
 
     CircularBufferIterator &operator--() {
         this->position--;
-        return *this;
-    }
-
-    CircularBufferIterator operator--(int) {
-        CircularBufferIterator tmp(*this);
-        operator--();
         return *this;
     }
 
@@ -60,7 +51,9 @@ public:
         return CircularBufferIterator(this->position + iter);
     }
 
-    bool operator<(const CircularBufferIterator &a) { return this->position < a.position; }
+    bool operator<(const CircularBufferIterator &a) {
+        return this->position < a.position;
+    }
 
     bool operator<(T *pointer) {
         return this->position < pointer;
