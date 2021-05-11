@@ -1,4 +1,5 @@
 template<typename T>
+//todo without inheritacne from std::iterator
 class CircularBufferIterator : public std::iterator<std::random_access_iterator_tag, T> {
 public:
     T *position;
@@ -106,6 +107,7 @@ public:
     }
 };
 
+//todo O(1)
 template<typename T>
 class CircularBuffer {
 private:
@@ -133,7 +135,8 @@ public:
     }
 
     bool empty() {
-        if (this->quantity == 0)return true;
+        if (this->quantity == 0)
+        	return true;
         else return false;
     }
 
