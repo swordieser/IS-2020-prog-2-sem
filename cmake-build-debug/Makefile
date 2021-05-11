@@ -142,32 +142,32 @@ IS_2020_prog_2_sem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/build
 .PHONY : IS_2020_prog_2_sem/fast
 
-homework4/main.obj: homework4/main.cpp.obj
+homework5/main.obj: homework5/main.cpp.obj
 
-.PHONY : homework4/main.obj
+.PHONY : homework5/main.obj
 
 # target to build an object file
-homework4/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework4/main.cpp.obj
-.PHONY : homework4/main.cpp.obj
+homework5/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework5/main.cpp.obj
+.PHONY : homework5/main.cpp.obj
 
-homework4/main.i: homework4/main.cpp.i
+homework5/main.i: homework5/main.cpp.i
 
-.PHONY : homework4/main.i
+.PHONY : homework5/main.i
 
 # target to preprocess a source file
-homework4/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework4/main.cpp.i
-.PHONY : homework4/main.cpp.i
+homework5/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework5/main.cpp.i
+.PHONY : homework5/main.cpp.i
 
-homework4/main.s: homework4/main.cpp.s
+homework5/main.s: homework5/main.cpp.s
 
-.PHONY : homework4/main.s
+.PHONY : homework5/main.s
 
 # target to generate assembly for a file
-homework4/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework4/main.cpp.s
-.PHONY : homework4/main.cpp.s
+homework5/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\IS_2020_prog_2_sem.dir\build.make CMakeFiles/IS_2020_prog_2_sem.dir/homework5/main.cpp.s
+.PHONY : homework5/main.cpp.s
 
 # Help Target
 help:
@@ -178,9 +178,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... IS_2020_prog_2_sem
-	@echo ... homework4/main.obj
-	@echo ... homework4/main.i
-	@echo ... homework4/main.s
+	@echo ... homework5/main.obj
+	@echo ... homework5/main.i
+	@echo ... homework5/main.s
 .PHONY : help
 
 

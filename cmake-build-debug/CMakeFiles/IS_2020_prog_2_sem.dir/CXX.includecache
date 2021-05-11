@@ -6,31 +6,27 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework4/main.cpp
-predicate.hpp
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework4/predicate.hpp
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework5/CircularBuffer.hpp
+
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework5/main.cpp
 iostream
 -
 sstream
 -
-assert.h
--
 vector
--
-set
--
-iterator
--
-functional
--
-
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework4/predicate.hpp
-cstdlib
--
-iostream
 -
 tuple
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework4/tuple
-vector
-C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework4/vector
+-
+utility
+-
+algorithm
+-
+string
+-
+exception
+-
+cassert
+-
+CircularBuffer.hpp
+C:/Users/komra/CLionProjects/IS-2020-prog-2-sem/homework5/CircularBuffer.hpp
 
