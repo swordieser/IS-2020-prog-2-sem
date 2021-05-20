@@ -140,6 +140,10 @@ bool assertPrint(const P& pred, Args&&... args) {
     return true;
 }
 
+void checkConstOperator(const CircularBuffer<int>& cb) {
+    print(cb[2]);
+}
+
 
 int main(){
     cin.tie(NULL);
@@ -169,7 +173,8 @@ int main(){
     c.addFirst(2);
     c.addFirst(3);
     c.addFirst(4);
-	try {
+    checkConstOperator(c);
+    try {
         c[4] = 1;
         throw "out of range";
     }
@@ -183,7 +188,7 @@ int main(){
     print<ss>(c);
     c.addFirst(6);
     print<ss>(c);
-	sort(c.begin(), c.end());
+    sort(c.begin(), c.end());
     print<ss>(c);
     callAssert(equal_to<>(), ss.str(), "4 3 2 1\n"
                                        "\n"
