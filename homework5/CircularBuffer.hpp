@@ -83,7 +83,7 @@ public:
         this->currentPosition += iter;
         if (this->currentPosition > this->positionOfLastElement) {
             this->currentPosition =
-                    this->positionOfFirstElement + std::distance( this->positionOfLastElement, this->currentPosition) -
+                    this->positionOfFirstElement + std::distance(this->positionOfLastElement, this->currentPosition) -
                     1;
         }
         return *this;
@@ -183,11 +183,9 @@ public:
 
     ~CircularBuffer() = default;
 
-    bool empty() {
-    	//todo one return
-        if (this->quantity == 0)
-            return true;
-        else return false;
+    bool empty() const {
+        //fixed one return
+        return (this->quantity == 0);
     }
 
     bool full() {
@@ -269,29 +267,36 @@ public:
         for (int i = 0; i < this->quantity; i++) {
             temp[i] = this->buffer[(this->start + i) % this->capacity];
         }
-        //todo delete[]
-        delete this->buffer;
+        //fixed delete[]
+        delete[] this->buffer;
         this->buffer = temp;
         this->start = 0;
         this->finish = this->quantity - 1;
         this->endIndex = (this->finish + 1) % (this->capacity + 1);
         this->capacity = size;
     }
-    //todo more information in exception
-    //todo range_error
+
+    //fixed more information in exception
+    //fixed range_error
     T operator[](int index) const {
-        if (index < this->quantity) {
+        if (this->empty()) {
+            throw std::range_error("Buffer is empty but there was an attempt to access an element");
+        } else if (index < this->quantity) {
             return this->buffer[(this->start + index) % (this->capacity + 1)];
         } else {
-            throw std::logic_error("Wrong index");
+            throw std::range_error("Wrong index, should be from 0 to " + std::to_string(this->quantity-1) +
+                                   " but was given " + std::to_string(index));
         }
     }
 
     T &operator[](int index) {
-        if (index < this->quantity) {
+        if (this->empty()) {
+            throw std::range_error("Buffer is empty but there was an attempt to access an element");
+        } else if (index < this->quantity) {
             return this->buffer[(this->start + index) % (this->capacity + 1)];
         } else {
-            throw std::logic_error("Wrong index");
+            throw std::range_error("Wrong index, should be from 0 to " + std::to_string(this->quantity-1) +
+                                   " but was given " + std::to_string(index));
         }
     }
 
