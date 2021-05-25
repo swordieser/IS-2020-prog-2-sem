@@ -184,6 +184,7 @@ public:
     ~CircularBuffer() = default;
 
     bool empty() {
+    	//todo one return
         if (this->quantity == 0)
             return true;
         else return false;
@@ -268,6 +269,7 @@ public:
         for (int i = 0; i < this->quantity; i++) {
             temp[i] = this->buffer[(this->start + i) % this->capacity];
         }
+        //todo delete[]
         delete this->buffer;
         this->buffer = temp;
         this->start = 0;
@@ -275,7 +277,8 @@ public:
         this->endIndex = (this->finish + 1) % (this->capacity + 1);
         this->capacity = size;
     }
-
+    //todo more information in exception
+    //todo range_error
     T operator[](int index) const {
         if (index < this->quantity) {
             return this->buffer[(this->start + index) % (this->capacity + 1)];
